@@ -1,2 +1,5 @@
-# eo-diagrams
-Storing some diagrams while looking at code, based on mermaid javascript library
+# Mermaid uml javascript diagram library
+
+# Sources
+* [mermaid site](http://knsv.github.io/mermaid/)
+* [github repo](https://github.com/knsv/mermaid)
