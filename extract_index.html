@@ -7,15 +7,39 @@
 <body>
 <div class="mermaid">
   sequenceDiagram
+    sqsqueue->>extract_index_score: input_json
     extract_index_score->>datapull: batch_get_frames_mprocess(tids, envir)
     activate datapull
     datapull-->>extract_index_score: frames
     deactivate datapull
-
+    Note over extract_index_score,index_calculations: data=frames['profs'], generate client_tracker
     extract_index_score->>index_calculations: compute_indexes_api(data, client_tracker)
     activate index_calculations
+    Note over datapull,index_calculations: copy of big loop function reworked to return per-row results
+    index_calculations-->>index_calculations: compute_index_for_segment_using_data_element_buckets
+    Note right of index_calculations: Intercept here to deal with bad cube, or out of range version
     index_calculations-->>extract_index_score: data_w_indexes
     deactivate index_calculations
+    Note over sqsqueue,extract_index_score: reformat data_w_indexes into json flatt format
+    extract_index_score-->>sqsqueue: output_json
 </div>
+<div>
+  <ul>
+    <li><a href="https://github.com/SocialIntelligence/analytics/blob/eo-dev-7/index_worker/tests/helpers.py#L8">Input json</a> 
+      converted to flat json. 
+      <a href="https://github.com/SocialIntelligence/analytics/blob/eo-dev-7/index_worker/tests/test_extract_index_scores.py#L137">Cubes unfolded.  </a></li>
+    
+    <li>Get 'data', profile information for the tid to process, batch_get_frames_mprocess.  (Will convert this to single process)</li>
+    <li>Generate client_tracker dataframe.  Both data and client tracker are what is needed to compute the incexes.</li>
+    <li>compute_indexes_api is a copy of compute_indexes_guided_by_client_name.</li>
+      <ul>
+        <li>it's had some code removed/replaced (for generating the client tracker)</li>
+        <li>output format reworked, no longer one single row with _0, _1... for results, but one row per cube</li>
+      </ul>
+    <li>compute_indexes_api eventually relies on compute_index_for_segment_using_data_element_buckets to look up the index</li>
+      <ul>
+        <li>This function adds the error message in case something goes wrong.</li>
+        <li>Intercept <a href="https://github.com/SocialIntelligence/analytics/blob/eo-dev-7/active/index_calculations.py#L390">here</a> to catch version mismatch
+  </ul>
 </body>
 </html>
