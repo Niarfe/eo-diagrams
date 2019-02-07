@@ -1,0 +1,41 @@
+<html>
+<head>
+<link href="css/mermaid.css" type="text/css" rel="stylesheet" />
+<script src="js/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+<div class="mermaid">
+  sequenceDiagram
+     Model17Main->>Model17Main: set_all_parameters 
+
+     SparkCrawler->>jsc: textFile(inputPath)
+     jsc->>SparkCrawler: RDD RDD_tlds
+
+     SparkCrawler->>RDD_tlds: repartition
+     activate RDD_tlds
+
+     RDD_tlds->>UrlIterator: traverse
+     activate UrlIterator
+
+     UrlIterator->>UrlIterator: extractAllSubUrls
+     activate UrlIterator
+
+     loop over extracted urls
+         UrlIterator->>UrlDownloader: getContent
+         UrlDownloader->>ConnectionNexus: getContent
+         activate ConnectionNexus
+         ConnectionNexus->>ConnectionNexus: getWebPage
+         deactivate ConnectionNexus
+         ConnectionNexus->>UrlDownloader: content
+         deactivate UrlDowloader
+         UrlDownloader->>UrlIterator: content
+         deactivate UrlIterator
+     end
+     deactivate RDD_tlds
+
+     UrlIterator->>SparkCrawler: rawPages 
+     deactivate SparkCralwer
+</div>
+</body>
+</html>
