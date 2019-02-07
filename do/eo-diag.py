@@ -5,7 +5,6 @@ import sys
 head = """<html>
     <head>
         <link href="css/mermaid.css" type="text/css" rel="stylesheet" />
-        <script src="js/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     </head>
     <body>
@@ -14,6 +13,7 @@ head = """<html>
 
 footer = """
 </div>
+    <script src="js/mermaid.min.js"></script>
     </body>
 </html>
 """

@@ -1,5 +1,24 @@
-graph RL 
-    2791(2791 M 17 Epic) --> 2861LoggingPHP
-    2791(2791 M 17 Epic) --> 2853CircleCI
-    2861LoggingPHP --> 2965RefactorPHP
-    BUGS --> 2923BUGIndexes
+graph TD;
+    2861LoggingPHP --> 2791(2791 M 17 Epic);
+    2853CircleCI --> 2791(2791 M 17 Epic);
+    DockerizingAnalytics --> 2853CircleCI;
+    LoadPMShouldNotCallDB --> 2853CircleCI;
+    BUGSilentFailS3 --> 2791(2791 M 17 Epic);
+    2952LoggingDecorator --> 2791(2791 M 17 Epic);
+    2965RefactorPHP --> 2861LoggingPHP;
+    2923BUGIndexes --> INDEXES(INDEXES);
+
+classDef Active fill:#3498DB
+
+class 2791 Active
+class BUGS Active
+class 2861LoggingPHP Active
+class 2965RefactorPHP Active
+class BUGSilentFailS3 Active
+class 2952LoggingDecorator Active
+class LoadPMShouldNotCallDB Active
+
+click 2965RefactorPHP "https://podio.com/carpe-data/roadmap/apps/actions/items/2965" "Fix Logging for Import Claims part 3: Refactor import_claims_results to be testable, debuggable"
+click 2952LoggingDecorator "https://podio.com/carpe-data/roadmap/apps/actions/items/2952" "Data Science:  Refactor logging in model17 and indexes, bug fix"
+click 2923BUGIndexes "https://podio.com/carpe-data/roadmap/apps/actions/items/2952" "Indexes Error Data Extraction: object of type float has no len"
+%% https://htmlcolorcodes.com/
