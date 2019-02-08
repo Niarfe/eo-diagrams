@@ -1,19 +1,24 @@
 graph TD;
  
-    2861(2861 Logging in php)              --> 1516;
     2853(2853 M17 CircleCI)                --> 2791>2791 M 17 Epic];
     DockerizingAnalytics                   --> 2853;
     2971(2971 no db use on parameter init) --> 2853;
     2952(2952 LoggingDecorator Python)     --> 2791;
-    2965(2965 Refactor PHP side)           --> 2861;
-    2923(2913 BUG Indexes)                 --> INDEXES>INDEXES];
+    2965(2965 Refactor PHP side)           --> 1516;
+    2923(2923 BUG Indexes)                 --> INDEXES>INDEXES];
     2970(2970 s3 exception bug)            --> 1516;
     1516>1516 Model 17 Bugs]               --> 2791;
+    2955(2955 Database overload?)          --> 2923;
+    2934(2934 Restart Index Workers)       --> 2923;
+    2977(2977 Log url_feedback_id)         --> 2965;
 
-classDef Active fill:#3498DB
+classDef Active    fill:#3499DB;
+classDef InRelease fill:#F7DC6F;
+classDef Closed    fill:#566573;
 
-class 2965 Active
-class 2952 Active
+class 2965 Active;
+class 2977 InRelease;
+class 2952 InRelease;
 
 click 1516 "https://podio.com/carpe-data/roadmap/apps/product-development-and-priorities-2/items/1516" "Model 17 Bugs"
 click 2861 "https://podio.com/carpe-data/roadmap/apps/actions/items/2861" "Model17:  Improve logging on PHP side"
@@ -22,5 +27,7 @@ click 2952 "https://podio.com/carpe-data/roadmap/apps/actions/items/2952" "Data 
 click 2965 "https://podio.com/carpe-data/roadmap/apps/actions/items/2965" "Fix Logging for Import Claims part 3: Refactor import_claims_results to be testable, debuggable"
 click 2970 "https://podio.com/carpe-data/roadmap/apps/actions/items/2970" "Model17: Bug fix, silent fails on catch exceptions reading from s3"
 click 2971 "https://podio.com/carpe-data/roadmap/apps/actions/items/2971" "Model17:  Remove calls to database from parameters module"
-
+click 2955 "https://podio.com/carpe-data/roadmap/apps/actions/items/2955" "Indexes database issues"
+click 2934 "https://podio.com/carpe-data/roadmap/apps/actions/items/2934" "Indexes:  Set up index worker threads to restart to avoid long running issues."
+click 2977 "https://podio.com/carpe-data/roadmap/apps/actions/items/2977" "Model 17: Php side logging, baseline logging for url_feedback_id updates"
 %% https://htmlcolorcodes.com/
