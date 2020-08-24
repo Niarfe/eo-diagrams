@@ -1,0 +1,13 @@
+graph LR
+
+DPP-4542[DPP-4542 ] --> DPP-4665[DPP-4665 Data Export Validation Integration with Pascal]
+DPP-4546[DPP-4546 ] --> DPP-4666[DPP-4666 Run Data Export Validations Weekly]
+DPP-ROOT[DPP-ROOT ] --> DPP-4601[DPP-4601 Explore DBT for use in data validations in slowfklake]
+
+classDef Active      fill:#3499DB;
+classDef InRelease   fill:#82E0AA;
+classDef Closed      fill:#566573;
+
+class DPP-4665 Ready
+class DPP-4666 Active
+class DPP-4601 Active

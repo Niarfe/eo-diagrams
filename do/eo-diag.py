@@ -5,7 +5,7 @@ import sys
 head = """<html>
     <head>
         <link href="css/mermaid.css" type="text/css" rel="stylesheet" />
-        <script>mermaid.initialize({startOnLoad:true});</script>
+        <!-- <script>mermaid.initialize({startOnLoad:true});</script> -->
     </head>
     <body>
 <div class="mermaid">

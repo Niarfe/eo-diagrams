@@ -1,0 +1,4 @@
+taskid,status,description,parent
+DPP-4665,Ready,Data Export Validation Integration with Pascal,DPP-4542
+DPP-4666,Active,Run Data Export Validations Weekly,DPP-4546
+DPP-4601,Active,Explore DBT for use in data validations in slowfklake,DPP-ROOT

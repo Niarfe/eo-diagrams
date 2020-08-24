@@ -1,0 +1,24 @@
+graph LR
+
+DPP-4294[DPP-4294 EMR compatible validations] --> DPP-4541[DPP-4541 Pair with DSh to plug vals into Lion]
+DPP-4294[DPP-4294 EMR compatible validations] --> DPP-4542[DPP-4542 Pair with Scott to plug vals into Pascal]
+DPP-4294[DPP-4294 EMR compatible validations] --> DPP-4546[DPP-4546 Tech debt: refactor/document/cleanup jup vals]
+DPP-4543[DPP-4543 Add sensor_stream_data to jupyter validations]
+DPP-4544[DPP-4544 Pair with Scott to plan the new weekly data validation runs]
+DPP-3854[DPP-3854 Addressing the terraform bug] --> 4545[4545 Terraform issue update]
+
+TA-1342[TA-1342 Sprint 9] --> TA-1343[TA-1343 Sync with Lauren/DaveG on priority/process/scope jupyter-validations]
+TA-1342[TA-1342 Sprint 9] --> TA-1344[TA-1344 Plan and scope Health Kit and Blue Button]
+TA-1342[TA-1342 Sprint 9] --> TA-1345[TA-1345 Identify a specific task to join Snowflake/Domino effort]
+
+classDef Active      fill:#3499DB;
+classDef InRelease   fill:#82E0AA;
+classDef Closed      fill:#566573;
+
+class DPP-4294 Closed
+class DPP-3854 Closed
+class TA-1342 InRelease
+
+
+
+%% http://htmlcolorcodes.com/
