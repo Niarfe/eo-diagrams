@@ -1,0 +1,16 @@
+graph TD
+  airflow-webserver ==> redis
+  airflow-webserver ==> airflow-db
+  airflow-webserver ==> localstack
+  airflow-worker ==> airflow-webserver
+  airflow-worker ==> airflow-servercheduler
+  airflow-worker ==> dataslice-server
+  airflow-worker ==> quarantine-server
+  airflow-worker ==> localstack
+  airflow-worker ==> redis
+  airflow-servercheduler ==> airflow-webserver
+  dataslice-server ==> dataslice-db
+  dataslice-server ==> dpp-db
+  quarantine-server ==> quarantine-db
+  dataslice-server ==> localstack
+  quarantine-server ==> localstack

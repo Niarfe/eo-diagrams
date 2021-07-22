@@ -1,0 +1,14 @@
+graph TD
+	 runall_out --> |report| report_out
+	 runall_out --> |wrap_report| wrap_report_out
+	 runall_out --> |matrix| matrix_out
+	 DD --> |csvs| csvs_out
+	 csvs_out --> |create_json| create_json_out
+	 create_json_out --> |runall| runall_out
+	 runall_out --> |pull_sql| pull_sql_out
+	 * --> |clearrun| runall_out
+	 pull_sql_out --> |export| export_out
+	 DD --> |full| export_out
+	 csvs_out --> |full_c| export_out
+	 covids_repo --> |update_dd| csvs_out
+	 json_sql_file --> |run_qa_commands| export_out
