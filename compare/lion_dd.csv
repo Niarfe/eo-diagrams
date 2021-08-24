@@ -1,0 +1,924 @@
+    ""quantity"": 2
+    ""quantity"": 3
+    ""sku_code"": ""8891000102021"",
+    ""sku_code"": ""8895000102021"",
+  {
+  {
+  }
+  },
+""activitySummaryCount"":31,
+""averageCaloriesPerStandHourKg"":0.39532868161628687,
+""averageStandMinsPerStandHour"":410.88076121191278,
+""averageSteps"":5689.0850934729933,
+""caloriesPerStandHourKgSedentaryThreshold"":0.55300000000000005,
+""eventDays"":31,
+""eventDaysThreshold"":10,
+""exerciseSedentaryThreshold"":15,
+""isCaloriesPerStandHourKgSedentaryThresholdMet"":1,
+""isEventDaysThresholdMet"":1,
+""isExerciseSedentaryThresholdMet"":0,
+""isStandMinsPerStandHourSedentaryThresholdMet"":0,
+""isStepsSedentaryThresholdMet"":1,
+""meanSleepStandHourOverlapSeconds"":4524.3648127218084,
+""medianStandHourAttemptedBefore"":18
+""sedentaryUseCaseLabelRuntimeSeconds"":0.50787186622619629,
+""sleepRecordCount"":29,""standTimeRecordCount"":30,
+""standHourRecordCount"":522,
+""standMinsPerStandHourSedentaryThreshold"":13.074,
+""stepRecordCount"":30,""averageExercisePerDay"":30.300000000000001,
+""stepsSedentaryThreshold"":11000,
+",False,False,Keep as is
+",True,False,Keep as is
+"timestamp, event_date","A couple users have timestamps of year 2563 or year 2 -- this is due to users using a non-Gregorian calendar (Buddhist, Japanese respectively).
+**Note: users may change datetime settings on their device, and this field would be affected accordingly",string,,,,True,False,Keep as is
+,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,4.0,,,,,,
+NOTES,,,,,,,,
+Table,Relation to users table,Unnamed: 2
+We will be implementing a fix in a later build to normalize the dates to the Gregorian calendar; but early data will have this inconsistency.",,,,,,,
+]
+active_storage_attachments,blob_id,bigint,,FOREIGN KEY,associated blob id,123.0,False,False,Keep as is
+active_storage_attachments,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_attachments,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+active_storage_attachments,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+active_storage_attachments,record_id,bigint,,,polymorphic association: record id the blob is for,123.0,False,False,Keep as is
+active_storage_attachments,record_type,varchar,255.0,,polymorphic association: record type the blob is for,Message,False,False,Keep as is
+active_storage_attachments,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_blobs,byte_size,bigint,,,size of the file,1234.0,False,False,Keep as is
+active_storage_blobs,checksum,varchar,255.0,,encoded digest of data to verify file integrity,79054025255fb1a26e4b,False,False,Keep as is
+active_storage_blobs,content_type,varchar,255.0,,file content type,text/plain,True,False,Keep as is
+active_storage_blobs,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_blobs,filename,varchar,255.0,,filename,testfile.jpg,False,False,Keep as is
+active_storage_blobs,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+active_storage_blobs,key,varchar,255.0,,key poinding to the file on the service for this blob record,xtapjjcjiudrlk3tmwyjgpuobabd.,False,False,Keep as is
+active_storage_blobs,metadata,text,65535.0,,metadata about file,"""{""height:: 100, ""width"": 200}""",True,False,Keep as is
+active_storage_blobs,service_name,varchar,255.0,,3rd party service name,s3,True,False,Keep as is
+active_storage_blobs,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_variant_records,blob_id,varchar,,FOREIGN KEY,foreign key to active_storage_blobs,123.0,False,False,Keep as is
+active_storage_variant_records,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_variant_records,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+active_storage_variant_records,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+active_storage_variant_records,variation_digest,varchar,255.0,,digest of variant,40BD001563085FC35165329EA1FF5C5ECBDBBEEF,False,False,Keep as is
+answer_choices,,
+answer_choices,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+answer_choices,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+answer_choices,identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+answer_choices,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+answer_choices,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+answer_choices_questions	,,
+answer_choices_questions,answer_choice_id,bigint,,FOREIGN KEY,associated answer_choice record primary key,123.0,False,False,Keep as is
+answer_choices_questions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+answer_choices_questions,order,integer,,,default sequential indice of the answer within the question,1.0,False,False,Keep as is
+answer_choices_questions,question_id,bigint,,FOREIGN KEY,associated question record primary key,123.0,False,False,Keep as is
+answer_choices_questions,score,integer,,,numerical representation of an answer_choice for statistical analysis,1.0,False,False,Keep as is
+app,"represents general app related events (ex. launch, foreground)",,,,,,,
+app_analytics,,
+app_versions,build_identifier,varchar,255.0,,for what environment the build is intended,com.evidation.lion.dev,False,False,Keep as is
+app_versions,build_no,integer,,,serial build number,1745.0,False,False,Keep as is
+app_versions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+app_versions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+app_versions,platform,varchar,255.0,,identifies the target device platform,ios,False,False,Keep as is
+app_versions,priority,jsonb,,,set of different priorities mapped to build number ranges,"{ ""optional"": [21, 30], ""important"": [11, 20], ""critical"": [0, 10] }",False,False,Keep as is
+app_versions,release_date,timestamp,,,date and time at which release is expected to be available in the app store,1997-12-17 07:37:16-08,False,False,Keep as is
+app_versions,release_identifier,varchar,255.0,,identifier to group related app_version records,4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+app_versions,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+app_versions,version_no,varchar,255.0,,sem ver version for the build,0.9.1,False,False,Keep as is
+audit.user_settings,,
+audit.user_settings,action,varchar,1.0,,"type of change, e.g. 'I' for Insert, 'D' for delete, 'U' for update",U,False,False,
+audit.user_settings,action_tstamp,timestamp,,,timestamp when the change took place,2020-05-04 09:28:50.543762+08,False,False,
+audit.user_settings,new_data,JSON,,,the record in JSON format after the change,"{""id"":1,""user_id"":1,""locale"":""en-SG"",""receive_emails"":false,""receive_push_notifications"":true,""share_data"":true,""gender"":""male"",""height"":208,""weight"":109,""signed_consent_at"":""2020-05-04T01:28:50.366755"",""timezone"":""America/Regina"",""created_at"":""2020-05-04T01:28:50.608507"",""updated_at"":""2020-05-04T01:35:56.161813""}",True,True,
+audit.user_settings,original_data,JSON,,,original record in JSON format before the change,"{""id"":1,""user_id"":1,""locale"":""en-SG"",""receive_emails"":true,""receive_push_notifications"":true,""share_data"":true,""gender"":""male"",""height"":208,""weight"":109,""signed_consent_at"":""2020-05-04T01:28:50.366755"",""timezone"":""America/Regina"",""created_at"":""2020-05-04T01:28:50.608507"",""updated_at"":""2020-05-04T01:28:50.608507""}",True,True,
+audit.user_settings,query,text,,,SQL query used to make the change,"UPDATE ""user_settings"" SET ""receive_emails"" = $1, ""updated_at"" = $2 WHERE ""user_settings"".""id"" = $3",True,False,
+audit.user_settings,schema_name,text,,,schema where the audited table belongs to,public,False,False,
+audit.user_settings,user_name,text,,,database connection user that made the change,lion,True,False,
+audit.users,,
+audit.users,action,varchar,1.0,,"type of change, e.g. 'I' for Insert, 'D' for delete, 'U' for update",U,False,False,
+audit.users,action_tstamp,timestamp,,,timestamp when the change took place,2020-05-04 09:28:50.543762+08,False,False,
+audit.users,new_data,JSON,,,the record in JSON format after the change,"{""id"":1,""first_name"":""Hilario"",""last_name"":""Schwartz"",""email"":""gavin.flatley@jacobi.org"",""last_session_id"":""a0216d53-a331-4dff-924a-998304ee3f8d"",""authentication_token"":""c71MPow2p0//nKJuLYFxVtEAu60gcS80TMJaF/x7NcpF3KoZm8eRFIyRQsIYSAVYO6Jk0cHBhN5q0KFlWpfzyQ=="",""role"":""participant"",""created_at"":""2020-05-04T01:28:50.545585"",""updated_at"":""2020-05-04T01:31:05.762462""}",True,True,
+audit.users,original_data,JSON,,,original record in JSON format before the change,"{""id"":1,""first_name"":""Hilario"",""last_name"":""Schultz"",""email"":""gavin.flatley@jacobi.org"",""last_session_id"":""a0216d53-a331-4dff-924a-998304ee3f8d"",""authentication_token"":""c71MPow2p0//nKJuLYFxVtEAu60gcS80TMJaF/x7NcpF3KoZm8eRFIyRQsIYSAVYO6Jk0cHBhN5q0KFlWpfzyQ=="",""role"":""participant"",""created_at"":""2020-05-04T01:28:50.545585"",""updated_at"":""2020-05-04T01:28:50.545585""}",True,True,
+audit.users,query,text,,,SQL query used to make the change,"UPDATE ""users"" SET ""last_name"" = $1, ""updated_at"" = $2 WHERE ""users"".""id"" = $3",True,False,
+audit.users,schema_name,text,,,schema where the audited table belongs to,public,False,False,
+audit.users,user_name,text,,,database connection user that made the change,lion,True,False,
+bonus_progresses,bonus_id,bigint,,FOREIGN_KEY,associated bonus record primary key,123.0,False,False,Keep as is
+bonus_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+bonus_progresses,ended_at,timestamp,,,date and time when this bonus_progress entry ended,1997-12-17 07:37:16-08,True,False,Keep as is
+bonus_progresses,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+bonus_progresses,ended_at_type,varchar,255.0,,type of end event,completed,True,False,Keep as is
+bonus_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+bonus_progresses,started_at,timestamp,,,date and time when this bonus_progress entry started,1997-12-17 07:37:16-08,True,False,Keep as is
+bonus_progresses,started_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+bonus_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+bonus_progresses,user_id,bigint,,FOREIGN_KEY,associated user record primary key,123.0,False,True,Key
+bonuses,campaign,varchar,255.0,,campaign for this bonus,friend_referral,True,False,Keep as is
+bonuses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+bonuses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+bonuses,identifier,varchar,255.0,,unique identifier,5ntoKdNN9F8NyxuWAs3yf8,False,False,Keep as is
+bonuses,points,bigint,,,amount of points to be rewarded,2000.0,False,False,Keep as is
+bonuses,type,varchar,255.0,,type of a bonus: Bonus::ConvertedLead | Bonus::Referred,Bonus::Referred,False,False,Keep as is
+bonuses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+build_number,represents build of app when record is logged,string,,,,True,False,Keep as is
+button_clicked,represents a user interacted with a button; the button name is defined by event_name,,,,,,,
+column_name,Description,Type,character_maximum_length,constraint_type,example,Nullable,Sensitive,Coding
+content_sync_events,content_sync_events.user_id | user.id,
+content_sync_events,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+content_sync_events,environment,varchar,255.0,,CMS environment. (e.g. 'master'),master,False,False,
+content_sync_events,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+content_sync_events,items_synced,jsonb,,,JSON array of content types or entry ids,"['wellnessExperience', 'adHocExperience']",True,False,
+content_sync_events,kind,varchar,255.0,,Identifies the type of content fetched from CMS,all_content | content_types | individual_entries,False,False,
+content_sync_events,published,boolean,,,True if published content only. False if latest draft changes synced.,True,False,False,
+content_sync_events,sync_result,jsonb,,,"JSON object containing HTTP status code and list of errors if any, representing the completion status of the request","{ ""code"": 200, ""success"": true, ""errors"": [] }",False,False,
+content_sync_events,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+content_sync_events,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+contexts,contexts.user_id | user.id,
+contexts,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+contexts,data_type,varchar,255.0,,"value data type (string, integer, float...)",string,False,False,Keep as is
+contexts,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+contexts,internal,boolean,,,if true the entry won't be exposed to the client app,True,False,False,Keep as is
+contexts,name,varchar,255.0,,Key part of a key-value pair,threshold.unit,False,False,Keep as is
+contexts,subject_id,bigint,,,polymorphic association: type of subject record,123.0,True,False,Keep as is
+contexts,subject_type,varchar,255.0,,polymorphic association: primary key for subject record,goal | goal_progress,True,False,Keep as is
+contexts,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+contexts,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,True,True,Key
+contexts,value,varchar,255.0,,Value part of a key-value pair,kcal,True,False,Keep as is
+core_activity_reports,adjudication_threshold,integer,,,threshold used for adjudication,500.0,True,False,Keep as is
+core_activity_reports,app_version,varchar,255.0,,app version,1.5.1,True,False,Keep as is
+core_activity_reports,completion,varchar,255.0,,ended status,completed | missed,False,False,Keep as is
+core_activity_reports,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+core_activity_reports,expected_adjudication_threshold,integer,,,view calculated adjudication threshold,600.0,False,False,Keep as is
+core_activity_reports,expected_completion,varchar,255.0,,view expected ended status,completed | missed,False,False,Keep as is
+core_activity_reports,expected_smart_threshold,integer,,,view calculated threshold,600.0,False,False,Keep as is
+core_activity_reports,expected_value,double,,,view calculated value,500.0,False,False,Keep as is
+core_activity_reports,goal_progress_id,bigint,,,associated goal_progress ID,123.0,False,False,Keep as is
+core_activity_reports,goal_type,varchar,255.0,,type of associated goal_progresses.goals,Goal::WeeklyRing,False,False,Keep as is
+core_activity_reports,smart_threshold,integer,,,app's calculated threshold,400.0,True,False,Keep as is
+core_activity_reports,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+core_activity_reports,watch_threshold,integer,,,threshold in the user's watch,500.0,True,False,Keep as is
+core_activity_reports,week_seq,integer,,,sequencial week number,1.0,False,False,Keep as is
+device_sessions,created_at,datetime,,,,,,,
+device_sessions,device_id,varchar,255.0,,randomly generated device identifier,A63257ED-01FC-4F7C-A2D5-F71CAED62B36,False,False,Keep as is
+device_sessions,device_sessions.user_id | users.id,
+device_sessions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+device_sessions,session_id,varchar,255.0,,randomly generated session identifier,CF9AA3FF-D721-7B9C-9DB3-C3B75B0A3906,False,False,Keep as is
+device_sessions,updated_at,datetime,,,,,,,
+device_sessions,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,True,False,Key
+event_date,"date of event, based on 'timestamp' field (is this duplicate - should we remove - maybe DP derives for analytics?)",string,,,,True,False,Keep as is
+event_name,string representation of event (format: experience_identifier|experience_title|offer_identifier|offer_title|section_identifier); see confluence page from Pascal (documentation needed to standardize across projects),string,,,,True,False,Keep as is
+event_type values,,,,,,,,
+event_type,"category of event (ex. view, app)",string,,,,True,False,Keep as is
+events,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+events,ended_at,timestamp,,,timestamp of event end,1997-12-17 07:37:16-08,False,False,Keep as is
+events,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+events,key,varchar,255.0,,client-generated id,6984419c-0781-4714-9fb9-455b1c99a3b1,False,False,Keep as is
+events,kind,varchar,255.0,,event kind,run,False,False,Keep as is
+events,metadata,jsonb,,,event metadata,{},False,False,Keep as is
+events,points,integer,,,points associated with an event,10.0,False,False,Keep as is
+events,started_at,timestamp,,,timestamp of event start,1997-12-17 07:37:16-08,False,False,Keep as is
+events,timezone,varchar,255.0,,timezome associated with event,Asia/Singapore,False,False,Keep as is
+events,type,varchar,255.0,,Rails reserved column for sub-classes,HealthkitEvent::Running,False,False,Keep as is
+events,unit,varchar,255.0,,unit assocated with event,km,False,False,Keep as is
+events,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+events,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+events,value,double precision,,,event value,1.0,False,False,Keep as is
+experience_id,Experience ID (Maps to experiences.identifier),string,,,,True,False,Keep as is
+experience_progresses,available_at,timestamp,,,date and time when experience is made available to the user,1997-12-17 07:37:16-08,False,False,Keep as is
+experience_progresses,available_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+experience_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+experience_progresses,ended_at,timestamp,,,date and time when experience availability ends (ended_at_type defines how access ended),1997-12-17 07:37:16-08,True,False,Keep as is
+experience_progresses,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+experience_progresses,ended_at_type,varchar,255.0,,indicates how availability ended,completed | expired,True,False,Keep as is
+experience_progresses,experience_id,bigint,,FOREIGN KEY,associated experience record primary key,123.0,False,False,Keep as is
+experience_progresses,experience_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+experience_progresses,experience_progresses.user_id | user.id,
+experience_progresses,expires_at,timestamp,,,date and time when experience will expire (if at all),1997-12-17 07:37:16-08,True,False,Keep as is
+experience_progresses,expires_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+experience_progresses,group_identifier,varchar,255.0,,"when user has the option to choose between multiple experiences, all options share the same group_identifier",f1qn28e8-ab2e-42d3-a247-7b0hcdf4drea,False,False,Keep as is
+experience_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+experience_progresses,offer_id,bigint,,FOREIGN KEY,associated offer record primary key,123.0,True,False,Keep as is
+experience_progresses,offer_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,True,False,Keep as is
+experience_progresses,served_at,timestamp,,,date and time when experience is first served to the user,1997-12-17 07:37:16-08,True,False,Removed
+experience_progresses,served_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Removed
+experience_progresses,started_at,timestamp,,,date and time when user starts the experience,1997-12-17 07:37:16-08,True,False,Keep as is
+experience_progresses,started_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+experience_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+experience_progresses,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+experience_title,Title test of experience,string,,,,True,False,Keep as is
+experiences ,experiences.id | experience_progresses.experience_id | experience_progresses.user_id | user_id,
+experiences,archived,boolean,,,CMS provided flag. True indicates experience is removed from availability.,False,False,False,Keep as is
+experiences,availability_protocol,jsonb,,,JSON object containing rules to define if and under what conditions the experience is to be made available to a user.,{},False,False,Keep as is
+experiences,category,varchar,255.0,,AdHoc experience category,urgent_clinical,True,False,Keep as is
+experiences,content_version,integer,,,sequential revision number from CMS,1.0,False,False,Keep as is
+experiences,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+experiences,header_text,jsonb,,,JSON object containing experience header text strings for each supported locale,"{ ""en-SG"": ""Wellness Challenge"" }",False,False,Keep as is
+experiences,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+experiences,identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+experiences,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+experiences,internal_version,integer,,,sequential revision number incremented on update,1.0,False,False,Keep as is
+experiences,last_archived_at,timestamp,,,Time at which the `archived` column was last set to true.,1997-12-17 07:37:16-08,True,False,Keep as is
+experiences,point_bonus_protocol,jsonb,,,"JSON object containing rules to define how, when and if bonus points should be awarded upon component completion.",{},False,False,Keep as is
+experiences,post_challenge_review_id,bigint,,FOREIGN KEY,associated offer record primary key,123.0,True,False,Keep as is
+experiences,priority,numeric,,,AdHoc experience priority,6.0,False,False,Keep as is
+experiences,repetition_protocol,jsonb,,,JSON object containing rules to define if and under what conditions the experience is to be made re-available to a user.,{},False,False,Keep as is
+experiences,targeting_protocol,jsonb,,,JSON object containing rules to define how the experience will map to participants.,{},False,False,Keep as is
+experiences,timing_protocol,jsonb,,,JSON object containing rules to define when the experience is to be made available to a user.,{},False,False,Keep as is
+experiences,triggering_protocol,jsonb,,,JSON object containing rules to define availability based on various user and program events,{},True,False,Keep as is
+experiences,type,varchar,255.0,,type of an experience,Experience::AdHoc | Experience::Wellness | ...,False,False,Keep as is
+experiences,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+experiences_offers,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+experiences_offers,experience_id,bigint,,FOREIGN KEY,associated experience record primary key,123.0,False,False,Keep as is
+experiences_offers,experience_offers.experience_id | experience_progresses.experience_id | experience_progresses.user_id | user_id,
+experiences_offers,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+experiences_offers,offer_id,bigint,,FOREIGN KEY,associated offer record primary key,123.0,False,False,Keep as is
+experiences_offers,order,integer,,,default sequence indice of offer within the experience,1.0,False,False,Keep as is
+experiences_offers,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+feedbacks,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+feedbacks,feedbacks.user_id | user.id,
+feedbacks,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+feedbacks,message,text,65535.0,,feedback text,This app is great!,False,True,Key
+feedbacks,sent_to_email,varchar,,,email where a copy of the feedback was sent,support@lion.evidation.com,True,True,Key
+feedbacks,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+feedbacks,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,True,True,Key
+goal_progresses,available_at,timestamp,,,date and time when this goal_progress entry became available,1997-12-17 07:37:16-08,True,False,Keep as is
+goal_progresses,available_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+goal_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+goal_progresses,ended_at,timestamp,,,date and time when this goal_progress entry ended,1997-12-17 07:37:16-08,True,False,Keep as is
+goal_progresses,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+goal_progresses,ended_at_type,varchar,255.0,,type of end event,completed,True,False,Keep as is
+goal_progresses,expires_at,timestamp,,,date and time when this goal_progress entry ended,1997-12-17 07:37:16-08,True,False,Keep as is
+goal_progresses,expires_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+goal_progresses,goal_id,bigint,,FOREIGN KEY,associated goal record primary key,123.0,False,False,Keep as is
+goal_progresses,goal_progresses.user_id | user.id,
+goal_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+goal_progresses,key,varchar,255.0,,client-generated ID for this goal_progress,weekly_goal,True,False,Keep as is
+goal_progresses,last_hk_fetched_at ,timestamp,,,date and time App last successfully fetched HK data,1997-12-17 07:37:16-09,True,False,Keep as is
+goal_progresses,parent_id,bigint,,,"polymorphic association: parent id of this goal_progress (GoalProgress, OfferProgress)",123.0,TBD,False,Keep as is
+goal_progresses,parent_type,varchar,,,"polymorphic association: parent type of this goal_progress (GoalProgress, OfferProgress)",GoalProgress,TBD,False,Keep as is
+goal_progresses,started_at,timestamp,,,date and time when this goal_progress entry started,1997-12-17 07:37:16-08,True,False,Keep as is
+goal_progresses,started_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+goal_progresses,unit,varchar,255.0,,unit of measurement for this goal_progress value,min,True,False,Keep as is
+goal_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+goal_progresses,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+goal_progresses,value,double precision,,,current value of this goal_progress,1.0,True,False,Keep as is
+goal_progresses_healthkit_events,goal_progress_id,bigint,,FOREIGN KEY,associated goal_progress record primary key,123.0,False,False,Keep as is
+goal_progresses_healthkit_events,goal_progresses_healthkit_events.goal_progress_id | goal_progresses.id | goal_progresses.user_id | user.id,
+goal_progresses_healthkit_events,healthkit_event_id,bigint,,FOREIGN KEY,associated healthkit_event record primary key,123.0,False,False,Keep as is
+goal_progresses_healthkit_events,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+goals,available_at,timestamp,,,date and time when goal was available,1997-12-17 07:37:16-08,True,False,Keep as is
+goals,celebration_id,bigint,,FOREIGN KEY,widget to be shown on completion,123.0,True,False,Keep as is
+goals,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+goals,expires_at,timestamp,,,date and time when goal expired,1997-12-17 07:37:16-08,True,False,Keep as is
+goals,goals.id | goal_progresses.goal_id | goal_progresses.user_id | user.id,
+goals,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+goals,identifier,varchar,255.0,,CMD ID representation of a goal,123.0,False,False,Keep as is
+goals,parent_id,bigint,,,polymorphic association: parent record primary key,123.0,True,False,Keep as is
+goals,parent_type,varchar,255.0,,polymorphic association: parent type of this goal,Goal | Offer,True,False,Keep as is
+goals,points,integer,,,points to be rewarded on goal completion,7900.0,True,False,Keep as is
+goals,type,varchar,255.0,,"type of a goal (ex: DailyMoveGoal, WeeklyGoal)",Goal::WeeklyRing ,False,False,Keep as is
+goals,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+healthkit_events,healthkit_events.user_id | user.id,
+leads,bonus_progress_id,bigint,,FOREIGN KEY,associated bonus_progress,123.0,True,False,Keep as is
+leads,converted,boolean,,,if converted to an account,123.0,False,False,Keep as is
+leads,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+leads,ended_at,timestamp,,,date and time when lead availability ends (ended_at_type defines how access ended),,True,False,Keep as is
+leads,ended_at_type,varchar,255.0,,how lead availability was ended,expired|deactivated|activated,True,False,Keep as is
+leads,expires_at,timestamp,,,date and time when lead will expire,1997-12-17 07:37:16-08,True,False,Keep as is
+leads,expires_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+leads,hashed_lead_identifier,varchar,255.0,,hashed phone number or hashed email,afe8b7ce019ad9774b11e1f0849d22dd790f49b0776b9c0e458555b25023c2e42da1cfc0783827035e3bbf643b80c9fa3e38269d053094ea5af61404b28bddf3,True,False,Keep as is
+leads,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+leads,referral_link_id,bigint,,FOREIGN KEY,associated referral_ink,123.0,False,False,Keep as is
+leads,type,varchar,255.0,,lead type: Lead::PhoneNumber | Lead::Email,Lead::PhoneNumber,False,False,Keep as is
+leads,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+linked_messages,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+linked_messages,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+linked_messages,linked_messages.user_id | user.id,
+linked_messages,message_id,bigint,,FOREIGN KEY,associated message record primary key,123.0,False,False,Keep as is
+linked_messages,order,integer,,,sequential index for ordered messages (like daily notifications),1.0,False,False,Keep as is
+linked_messages,parent_id,bigint,,,polymorphic association: parent record primary key,123.0,False,False,Keep as is
+linked_messages,parent_type,varchar,255.0,,polymorphic association: parent type of this linked_message,Experience | Offer,False,False,Keep as is
+linked_messages,send_conditions,jsonb,,,JSON object containing rules that determine when and under what conditions the linked message is to be sent to a user,,False,False,Keep as is
+linked_messages,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+manual_point_allocations,allocated_by,varchar,255.0,,email address of awarding support person,support.person.a@example.com,False,False,Keep as is
+manual_point_allocations,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+manual_point_allocations,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+manual_point_allocations,manual_point_allocations.user_id | user.id,
+manual_point_allocations,notes,text,65535.0,,details provided by support staff to further explain reason for awarding points,Participant indicated they completed activity but did not receive points,True,True,Remove
+manual_point_allocations,points,integer,,,number of points awarded,100.0,False,False,Keep as is
+manual_point_allocations,reason,varchar,255.0,,category key indicating reason points were awarded,activity_discrepancy,False,False,Keep as is
+manual_point_allocations,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+manual_point_allocations,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+manual_voucher_replacements,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+manual_voucher_replacements,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+manual_voucher_replacements,issued_by,varchar,255.0,,email address of awarding support person,support.person.a@example.com,False,False,Keep as is
+manual_voucher_replacements,manual_voucher_replacements.user_id | user.id,
+manual_voucher_replacements,notes,text,65535.0,,details provided by support staff to further explain reason for replacing existing voucher,Participant indicated they completed activity but did not receive points,False,True,Remove
+manual_voucher_replacements,points,integer,,,number of points associated with voucher,100.0,False,False,Keep as is
+manual_voucher_replacements,replaced_voucher_id,bigint,,FOREIGN KEY,associated replaced voucher record primary key,123.0,False,False,Keep as is
+manual_voucher_replacements,sku_code,varchar,255.0,,,,False,False,Keep as is
+manual_voucher_replacements,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+manual_voucher_replacements,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+manual_voucher_replacements,voucher_id,bigint,,FOREIGN KEY,associated voucher record primary key,123.0,False,False,Keep as is
+map_backgrounds,chapter,integer,,,which chapter the background is for,1.0,False,False,Keep as is
+map_backgrounds,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+map_backgrounds,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+map_backgrounds,identifier,varchar,255.0,,alpha identifier of record (globally unique),66pfVQAXy5hluE4YSnLJ21,False,False,Keep as is
+map_backgrounds,milestone_id,bigint,,FOREIGN KEY,JSON object containing rules that determine when and under what conditions the linked message is to be sent to a user,,False,False,Keep as is
+map_backgrounds,slice_num,integer,,,index of the 8 slices per chapter (1-indexed),1.0,False,False,Keep as is
+map_backgrounds,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+map_backgrounds,url,varchar,255.0,,link to image sset,https://images.ctfassets.net/,False,False,Keep as is
+messages,archived,boolean,,,CMS provided flag. True indicates experience is removed from availability.,False,False,False,Keep as is
+messages,content,jsonb,,,message content to be presented,"{ ""title"": ""Lorem"", ""body"": ""Ipsum"" }",False,False,Keep as is
+messages,content_version,integer,,,sequenced revision number from CMS,1.0,False,False,Keep as is
+messages,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+messages,escalation,boolean,,,true if this is an escalation message that will be conditionally sent if a user fails to complete some action at a given time.,False,False,False,Keep as is
+messages,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+messages,identifier,varchar,255.0,,alpha identifier of entry (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+messages,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+messages,internal_version,integer,,,sequenced revision number incremented on update,1.0,False,False,Keep as is
+messages,last_archived_at,timestamp,,,Time at which the `archived` column was last set to true.,1997-12-17 07:37:16-08,True,False,Keep as is
+messages,locale,varchar,255.0,,message content intended locale,en-SG,False,False,Keep as is
+messages,messages.id | linked_messages.message_id | linked_messages.user_id | user.id,
+messages,obey_unsubscribe,boolean,,,false if message should not adhere to users' unsubscribe request,False,False,False,Keep as is
+messages,observe_polite,boolean,,,false if message may be sent at any time. false if message may only be sent during the configured day-time hours.,1.0,False,False,Keep as is
+messages,sub_type,varchar,255.0,,provides context for intended use,content_new | try_it_daily_reminder | content_expire_remind | content_complete_celebrate,True,False,Keep as is
+messages,type,varchar,255.0,,type of this message,Message::PushNotification,False,False,Keep as is
+messages,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+metadata,JSON object field containing additional relevant information. Note should discuss max nesting d=1.,string,,,,True,False,Keep as is
+milestone_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+milestone_progresses,current_points,integer,,,snapshot of user's current points within the milestone,1000.0,True,False,Keep as is
+milestone_progresses,ended_at,timestamp,,,date and time when user successfully completes the milestone,1997-12-17 07:37:16-08,True,False,Keep as is
+milestone_progresses,ended_at_timezone,varchar,,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+milestone_progresses,ended_at_type,varchar,,,indicates how availability ended,completed,True,False,Keep as is
+milestone_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+milestone_progresses,milestone_id,bigint,,FOREIGN KEY,associated milestone record primary key,123.0,False,False,Keep as is
+milestone_progresses,milestone_progresses.user_id | user.id,
+milestone_progresses,started_at,timestamp,,,timestamp of milestone start,1997-12-17 07:37:16-08,True,False,Keep as is
+milestone_progresses,started_at_timezone,varchar,255.0,,timezone of milestone start,Asia/Singapore,True,False,Keep as is
+milestone_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+milestone_progresses,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+milestones,coins,integer,,,coins to be awarded after milestone completed,200.0,False,False,Keep as is
+milestones,created_at,timestamp,,,date and time of initial record creation,2020-04-23T17:51:32+00:00,False,False,Keep as is
+milestones,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+milestones,milestones.id | milestone_progresses.milestone_id | milestone_progresses.user_id | user.id,
+milestones,name,varchar,255.0,,name of this milestone,first_chapter,False,False,Keep as is
+milestones,number,integer,,,number of this milestone,1.0,False,False,Keep as is
+milestones,parent_id,bigint,,FOREIGN KEY,"parent milestone (chapter), is this is an intermediate milestone",123.0,True,False,Keep as is
+milestones,points_threshold,integer,,,points threshold to be achieved to reach this milestone,40000.0,False,False,Keep as is
+milestones,type,varchar,255.0,,type of this milestone (intermediate | chapter),Milestone::Chapter,False,False,Keep as is
+milestones,updated_at,timestamp,,,date and time of last record update,2020-04-23T17:51:32+00:00,False,False,Keep as is
+offer_id,string representation of offer that maps to offer.identifier,string,,,,True,False,Keep as is
+offer_progresses,available_at,timestamp,,,date and time when offer is made available to the user,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_progresses,available_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+offer_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_progresses,ended_at,timestamp,,,date and time when offer availability ends (ended_at_type defines how access ended),1997-12-17 07:37:16-08,True,False,Keep as is
+offer_progresses,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_progresses,ended_at_type,varchar,255.0,,indicates how availability ended,completed | expired,True,False,Keep as is
+offer_progresses,experience_progress_id,bigint,,FOREIGN KEY,associated parent experience_progress record primary key,123.0,False,False,Keep as is
+offer_progresses,expires_at,timestamp,,,date and time when offer will expire (if at all),1997-12-17 07:37:16-08,True,False,Keep as is
+offer_progresses,expires_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+offer_progresses,offer_id,bigint,,FOREIGN KEY,associated offer record primary key,123.0,False,False,Keep as is
+offer_progresses,offer_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+offer_progresses,offer_progresses.user_id | user.id,
+offer_progresses,opted_in_at,timestamp,,,date and time when user opts into the offer,1997-12-17 07:37:16-08,True,False,Keep as is
+offer_progresses,opted_in_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_progresses,served_at,timestamp,,,date and time when offer is first served to the user,1997-12-17 07:37:16-08,True,False,Keep as is
+offer_progresses,served_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_progresses,started_at,timestamp,,,date and time when user starts the offer,1997-12-17 07:37:16-08,True,False,Keep as is
+offer_progresses,started_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_progresses,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+offer_section_progresses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_section_progresses,ended_at,timestamp,,,date and time when section availability ends (ended_at_type defines how access ended),,True,False,Keep as is
+offer_section_progresses,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+offer_section_progresses,ended_at_type,varchar,255.0,,indicates how availability ended,completed | skipped,True,False,Keep as is
+offer_section_progresses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+offer_section_progresses,offer_progress_id,bigint,,FOREIGN KEY,associated offer_progress record primary key,123.0,False,False,Keep as is
+offer_section_progresses,offer_section_progresses.offer_progress_id | offer_progresses.id | offer_progresses.user_id | user.id,
+offer_section_progresses,section_id,bigint,,FOREIGN KEY,associated section record primary key,123.0,False,False,Keep as is
+offer_section_progresses,section_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+offer_section_progresses,started_at,timestamp,,,date and time when user starts the section,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_section_progresses,started_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+offer_section_progresses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_sections,completion,boolean,,,Determines if linked section is the final section for the parent offer,False,False,False,Keep as is
+offer_sections,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_sections,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+offer_sections,offer_id,bigint,,,associated offer record primary key,123.0,False,False,Keep as is
+offer_sections,offer_sections.offer_id | offers.id | offer_progresses.offer_id | offer_progresses.user_id | user.id,
+offer_sections,order,integer,,,default sequence indice of this section within the offer context,1.0,False,False,Keep as is
+offer_sections,section_id,bigint,,FOREIGN KEY,associated section record primary key,123.0,False,False,Keep as is
+offer_sections,sm_transition_conditions,jsonb,,,JSON object containing rules indicating what section will come next and under what conditions.,"{ ""conditional"": false, ""next"": ""identifier"" }",True,False,Keep as is
+offer_sections,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+offer_title,title text of offer,string,,,,True,False,Keep as is
+offers,action_points,integer,,,points to award upon single adjudication of Try-It,100.0,True,False,Keep as is
+offers,archived,boolean,,,CMS provided flag. True indicates experience is removed from availability.,False,False,False,Keep as is
+offers,content_version,integer,,,sequenced revision number from CMS,1.0,False,False,Keep as is
+offers,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+offers,expiration_protocol,jsonb,,,JSON object containing rules that define when and under what conditions the offer availability will expire.,{},True,False,Keep as is
+offers,goal_met_criteria,integer,,,number of times user must adjudicate Try-It to complete overall goal,3.0,True,False,Keep as is
+offers,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+offers,identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+offers,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+offers,internal_version,integer,,,sequenced revision number incremented on update,1.0,False,False,Keep as is
+offers,last_archived_at,timestamp,,,Time at which the `archived` column was last set to true.,1997-12-17 07:37:16-08,True,False,Keep as is
+offers,locale,varchar,255.0,,offer content intended locale,en-SG,False,False,Keep as is
+offers,offers.id | offer_progresses.offer_id | offer_progresses.user_id | user.id,
+offers,points,integer,,,points to award upon successful completion of overall offer,1000.0,False,False,Keep as is
+offers,type,varchar,255.0,,"type of offer (e.g. Article, Qa, Survey, ...)",Offer::Survey,False,False,Keep as is
+offers,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+order_vouchers_transactions,,
+order_vouchers_transactions,batch_no,varchar,255.0,,alpha identifier of a batch of vouchers,BN00000001996,True,False,Keep as is
+order_vouchers_transactions,cause,varchar,255.0,,error message of why the transaction failed,"{ ""status"": 4002, ""message"": ""Order quantity exceeds available inventory"" }",True,False,Keep as is
+order_vouchers_transactions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+order_vouchers_transactions,ended_at,timestamp,,,date and time when transaction ends (ended_at_type defines how it ended),2020-08-06 00:30:11,True,False,Keep as is
+order_vouchers_transactions,ended_at_type,varchar,255.0,,indicates how transaction ended,completed | cancelled | failed,True,False,Keep as is
+order_vouchers_transactions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+order_vouchers_transactions,quantity,integer,,,quantity of vouchers ordered,2500.0,False,False,Keep as is
+order_vouchers_transactions,reference_no,varchar,255.0,,randomized alpha identifier - acts as the reference number with VCS,g4aET1tuW7exxCutCmGx,False,False,Keep as is
+order_vouchers_transactions,remarks,varchar,255.0,,optional remark sent across to VCS when placing an order for vouchers,by VoucherInventoryLevelCheckWorker,True,False,Keep as is
+order_vouchers_transactions,sku_code,varchar,255.0,,numeric string identifier of voucher type,8895001001001,False,False,Keep as is
+order_vouchers_transactions,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+points_deltas,context,jsonb,,,entry's context metadata,{},True,False,
+points_deltas,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+points_deltas,delta,double precision,,,difference between previous and current points,0.0,False,False,
+points_deltas,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+points_deltas,ledger_entry_id,bigint,,FOREIGN KEY,associated ledger_entry record primary key,123.0,False,False,
+points_deltas,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+points_ledger,points_ledgers.user_id | user.id,
+points_ledger_entries,context,jsonb,,,context metadata for this entry,"{ ""title"": ""Read article: Article"" }",True,False,Remove
+points_ledger_entries,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+points_ledger_entries,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+points_ledger_entries,ledger_id,bigint,,FOREIGN KEY,associated ledger record primary key,123.0,False,False,Keep as is
+points_ledger_entries,points,double precision,,,points awarded by the rule applied on the subject,100.0,True,False,Keep as is
+points_ledger_entries,points_ledger_entries.ledger_id | points_ledgers.id | points_ledgers.user_id | user.id,
+points_ledger_entries,rule_id,bigint,,FOREIGN KEY,associated rule record primary key,123.0,False,False,Remove
+points_ledger_entries,subject_id,bigint,,,"polymorphic association: subject record primary key (Goal, Experience, Offer)",123.0,False,False,Keep as is
+points_ledger_entries,subject_type,varchar,255.0,,"polymorphic association: subject type of this ledger entry (Goal, Experience, Offer)",Offer,False,False,Keep as is
+points_ledger_entries,timestamp,timestamp,,,timestamp of the occurence of the subject,2020-01-01 00:01:00,True,False,Keep as is
+points_ledger_entries,timezone,varchar,255.0,,timezone of the occurence of the subject,America/Los_Angeles,True,False,Keep as is
+points_ledger_entries,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+points_ledgers,balance,double precision,,,ledger current balance - sum of points_ledger_entries points,4000.0,False,False,Keep as is
+points_ledgers,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+points_ledgers,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+points_ledgers,project,varchar,255.0,,project in which this ledger is used ,lion,True,False,Keep as is
+points_ledgers,type,varchar,255.0,,"type of this ledger (bolts, rewards)",Ledger::Bolt,False,False,Keep as is
+points_ledgers,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+points_ledgers,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+points_limits,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+points_limits,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+points_limits,name,varchar,255.0,,internal name of this limit,one_daily_goal_per_day,True,False,
+points_limits,priority,bigint,,,priority in which the limit should execute in case of conflict,10.0,True,False,
+points_limits,source_code,text,,,ruby source code of this limit,def apply ... end,False,False,
+points_limits,source_code_digest,varchar,255.0,,digest hash of the source code,7815696ecbf1c96e6894b779456d330e,False,False,
+points_limits,type,varchar,255.0,,type of this limit,Limit::OneDailyGoalPerDay,False,False,
+points_limits,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+points_rule_limits,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+points_rule_limits,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+points_rule_limits,limit_id,bigint,,FOREIGN KEY,associated limit record primary key,123.0,False,False,
+points_rule_limits,order,integer,,,order in which this limit should be applied,1.0,True,False,
+points_rule_limits,rule_id,bigint,,FOREIGN KEY,associated rule record primary key,123.0,False,False,
+points_rule_limits,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+points_rules,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+points_rules,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+points_rules,name,varchar,255.0,,internal name identifier,offer_completed,True,False,
+points_rules,priority,integer,,,priority in which the rule should be applied in case of conflict,10.0,True,False,
+points_rules,source_code,text,,,ruby source code of this rule,def match? ... end,True,False,
+points_rules,source_code_digest,varchar,255.0,,digest hash of the source code,7815696ecbf1c96e6894b779456d330e,True,False,
+points_rules,status,varchar,255.0,,status of ths rule (active | inactive),active,True,False,
+points_rules,type,varchar,255.0,,type of this rule,Rule::OfferCompleted,False,False,
+points_rules,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+program_events,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+program_events,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+program_events,program_events.user_id | user.id,
+program_events,source_id,bigint,,,polymorphic association: primary key for the record that is associated with this program event,123.0,True,False,Keep as is
+program_events,source_type,varchar,255.0,,polymorphic association: type of the record that is associated with this program event,Offer,True,False,Keep as is
+program_events,timestamp,timestamp,,,actual date and time of the program event; allows recording of event timestamp that may occur when user is offline,1997-12-17 07:37:16-08,False,False,Keep as is
+program_events,timezone,varchar,255.0,,"timezone indicated by user's device, at time of report",Asia/Singapore,False,False,Keep as is
+program_events,type,varchar,,,"type of program event (ProgramEvent::OnboardingCompleted, ProgramEvent::OfferCompleted...)",ProgramEvent::OnboardingCompleted|ProgramEvent::NuxExperienceCompleted|ProgramEvent::NuxExperienceCompleted::Retroactive,False,False,Keep as is
+program_events,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+program_events,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+program_waitlists,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+program_waitlists,email,varchar,255.0,,waitlisted user's email address,user@example.com,False,True,Key
+program_waitlists,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+program_waitlists,program_waitlists.user_id | user.id,
+program_waitlists,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+push_notification,"represents when users respond to the push notification, receive in the foreground, or if the notification is ignored by the app automatically (if the user is in the right action)",,,,,,,
+questions,,
+questions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+questions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+questions,identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+questions,internal_name,varchar,255.0,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+questions,scoring_protocol,jsonb,,,JSON object containing rules indicating how user responses are to be scored.,{},False,False,Keep as is
+questions,tag_scope,varchar,255.0,,"used to ensure targeting tags generated for user responses are unique. enum: 'dont_track', 'question', 'offer', 'experience'",dont_track | question | offer | experience,False,False,Keep as is
+questions,type,varchar,255.0,,type of question,Question::MultipleChoice,False,False,Keep as is
+questions,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+redeem_voucher_requests,,
+redeem_voucher_requests,cause,varchar,255.0,,error message of why the request failed,user_has_insufficient_reward_points,True,False,Keep as is
+redeem_voucher_requests,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+redeem_voucher_requests,ended_at,timestamp,,,date and time when transaction ends (ended_at_type defines how it ended),1997-12-17 07:37:16-08,True,False,Keep as is
+redeem_voucher_requests,ended_at_type,varchar,255.0,,indicates how transaction ended,completed | cancelled | failed,True,False,Keep as is
+redeem_voucher_requests,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+redeem_voucher_requests,redeem_vouchers_transaction_id,bigint,,FOREIGN KEY,associated redeem_vouchers_transactions primary key,123.0,False,False,Keep as is
+redeem_voucher_requests,sku_code,varchar,255.0,,numeric string identifier of voucher type,8895001001001,False,False,Keep as is
+redeem_voucher_requests,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+redeem_voucher_requests,voucher_id,bigint,,FOREIGN KEY,associated voucher record primary key,123.0,True,False,Keep as is
+redeem_vouchers_transactions,,
+redeem_vouchers_transactions,batch_id,varchar,255.0,,alpha identifier generated by sidekiq batch worker,koH3PeHVO9lPEA,True,False,Keep as is
+redeem_vouchers_transactions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+redeem_vouchers_transactions,ended_at,timestamp,,,date and time when transaction ends (ended_at_type defines how it ended),1997-12-17 07:37:16-08,True,False,Keep as is
+redeem_vouchers_transactions,ended_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+redeem_vouchers_transactions,ended_at_type,varchar,255.0,,indicates how transaction ended,completed | cancelled | failed,True,False,Keep as is
+redeem_vouchers_transactions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+redeem_vouchers_transactions,request,json,,,request body of the redeem request stating sku_codes and quantities of vouchers to redeem,"[
+redeem_vouchers_transactions,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+redeem_vouchers_transactions,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+referral_links,cap,bigint,,,maximum times this referral link can reward bonus points,50.0,False,False,Keep as is
+referral_links,clicks,bigint,,,number of times the referral link was clicked,123.0,False,False,Keep as is
+referral_links,code,varchar,255.0,,unique code to be used on user's referral url: /invite/{code},ee15e775eefd591e,False,True,Key
+referral_links,conversions,bigint,,,number of times someone created an account,123.0,False,False,Keep as is
+referral_links,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+referral_links,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+referral_links,leads,bigint,,,number of times someone provided the phone number,123.0,False,False,Keep as is
+referral_links,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+referral_links,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+referrer,Prior view that referred the user to a specified view. Only populated for view events_types,string,,,,True,False,Keep as is
+screenname,(placeholder - TBD); screen name or view if it is an event; goal is to know what screen event occurred.,string,,,,True,False,Keep as is
+section_id,"string representation of section that maps to ""offer.identifier:section.identifier""",string,,,,True,False,Keep as is
+sections,app_content,text,65535.0,,Mustache template containing JSON for app UI,,True,False,Keep as is
+sections,content_version,integer,,,sequenced revision number from CMS,1.0,False,False,Keep as is
+sections,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+sections,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+sections,identifier,varchar,,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+sections,internal_name,varchar,,,descriptor to aid in human identification,This plain text describes this record,True,False,Keep as is
+sections,internal_version,integer,,,sequenced revision number incremented on update,1.0,False,False,Keep as is
+sections,locale,varchar,,,section content intended locale,en-SG,False,False,Keep as is
+sections,points,integer,,,(optional) points to be awarded upon successful completion of this section,1000.0,True,False,Keep as is
+sections,question_id,bigint,,FOREIGN KEY,associated question record primary key,123.0,True,False,Keep as is
+sections,return_last_response,boolean,,,"true if user should be presented with their last response, while in progress. (default false)",False,False,False,Keep as is
+sections,sections.id | offer_section_progresses.section_id | offer_section_progress.offer_progress_id | offer_progresses.id | offer_progresses.user_id | user.id,
+sections,submission_protocol,jsonb,,,"JSON object containing rules indicating conditions for user submission (e.g. only once per refresh, response overwrite, etc.)",{},True,False,Keep as is
+sections,type,varchar,,,"type of section (e.g. Settings, Ledger, AnswerFeedback, ...)",Section::ComponentDetails,False,False,Keep as is
+sections,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+sections,validation_protocol,jsonb,,,JSON object containing custom input validation rules (JSON Schema syntax),{},True,False,Keep as is
+session_id,unique alphanumeric representation of session,string,,,,True,False,Keep as is
+singpass_myinfo,authorized_at,timestamp,,,when user authorized use of Singpass MyInfo data,2020-01-01 00:05:00,False,False,Keep as is
+singpass_myinfo,authorized_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+singpass_myinfo,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+singpass_myinfo,dialect,varchar,255.0,,user's dialect on Singpass MyInfo system,HAINANESE,True,False,Keep as is
+singpass_myinfo,dob,date,,,user's date of birth on Singpass MyInfo system,1990-01-01 00:00:00,True,True,Fuzzed; format: YYYY-MM
+singpass_myinfo,email,varchar,255.0,,user's email on Singpass myinfo system,john.doe@gmail.com,True,True,Remove
+singpass_myinfo,employment_sector,varchar,255.0,,user's employment sector information on Singpass MyInfo system,C,True,False,Keep as is
+singpass_myinfo,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+singpass_myinfo,marital_status,varchar,255.0,,user's marital status on Singpass MyInfo system,MARRIED,True,False,Keep as is
+singpass_myinfo,mobile_number,varchar,255.0,,user's mobile phone number on Singpass MyInfo system,"""+6597399245""",True,True,Remove
+singpass_myinfo,occupation,varchar,255.0,,user's occupation information on Singpass MyInfo system,APPLICATIONS/SYSTEMS PROGRAMMER,True,False,Keep as is
+singpass_myinfo,registered_address,varchar,255.0,,user's home address on Singpass MyInfo system,128 BEDOK NORTH AVENUE 4,True,True,Remove
+singpass_myinfo,sex,varchar,255.0,,user's biological sex on Singpass myinfo system,male | female | unknown,True,False,Keep as is
+singpass_myinfo,singpass_myinfo.user_id | user.id,
+singpass_myinfo,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+singpass_myinfo,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+singpass_myinfo,uuid,varchar,255.0,,user's uuid on Singpass myinfo system,68489e19-fdf4-4c7b-9b63-95771c019eca,False,True,Remove
+singpass_myinfo_children,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+singpass_myinfo_children,dob,date,,,child's date of birth on Singpass MyInfo system,1997-12-17 07:37:16-08,True,True,Fuzzed; format: YYYY-MM
+singpass_myinfo_children,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+singpass_myinfo_children,kind,varchar,255.0,,indicates child's relation to parent,biological | sponsored,False,False,Keep as is
+singpass_myinfo_children,sex,varchar,255.0,,child's biological sex on Singpass myinfo system,male | female | unknown,True,False,Keep as is
+singpass_myinfo_children,singpass_myinfo_children.singpass_myinfo_id | singpass_myinfo.id | singpass_myinfo.user_id | user.id,
+singpass_myinfo_children,singpass_myinfo_id,bigint,,FOREIGN KEY,associated singpass_myinfo record primary key,123.0,False,False,Keep as is
+singpass_myinfo_children,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+support_requests,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+support_requests,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+support_requests,message,varchar,255.0,,details of participant's request,I'm having trouble pairing my watch,False,MAYBE,Remove
+support_requests,support_requests.user_id | user.id,
+support_requests,topic,varchar,255.0,,key identifier of support topic category,app,False,False,Keep as is
+support_requests,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+support_requests,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,Example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+table_name,column_name,data_type,character_maximum_length,constraint_type,description,example,nullable,sensitive,coding
+tag_maintenance_tasks,cleaning_params,jsonb,,,JSON object containing tag cleaning rules,"{ ""remove"": [""tag_1"", ""tag_2""] }",False,False,
+tag_maintenance_tasks,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+tag_maintenance_tasks,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tag_maintenance_tasks,run_at,timestamp,,,indicates when this task should be executed,1997-12-17 07:37:16-08,False,False,
+tag_maintenance_tasks,tag_maintenance_tasks.user_id | user.id,
+tag_maintenance_tasks,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+tag_maintenance_tasks,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+tag_targeting_rules,,
+tag_targeting_rules,content_identifier,varchar,255.0,,identifier of the parent content record(s) that define the cohort targeting,4phz7qSeQhysrKrBCr1uu1,False,False,
+tag_targeting_rules,content_kind,varchar,255.0,,type of the parent content,Experience | Goal,False,False,
+tag_targeting_rules,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+tag_targeting_rules,exclusion_set_id,bigint,,FOREIGN KEY,associated tag_targeting_set record primary key. Set determines if targeted content should be conditionally unavailable to some users,123.0,True,False,
+tag_targeting_rules,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tag_targeting_rules,inclusion_set_id,bigint,,FOREIGN KEY,associated tag_targeting_set record primary key. Set determines user matching criteria,123.0,False,False,
+tag_targeting_rules,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+tag_targeting_sets,,
+tag_targeting_sets,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tag_targeting_sets,match_any,boolean,,,false if all tags and sub-sets must match,True,False,False,
+tag_targeting_sets,parent_id,bigint,,,polymorphic association: parent primary key (TagTargetingRule or TagTargetingSet),123.0,False,False,
+tag_targeting_sets,parent_type,varchar,255.0,,polymorphic association: parent type,TagTargetingRule | TagTargetingSet,False,False,
+tag_targeting_sets_tags,,
+tag_targeting_sets_tags,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tag_targeting_sets_tags,tag_id,bigint,,FOREIGN KEY,associated tag record primary key,123.0,False,False,
+tag_targeting_sets_tags,tag_targeting_set_id,bigint,,FOREIGN KEY,associated tag_targeting_set record primary key,123.0,False,False,
+tags,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tags,name,varchar,255.0,UNIQUE,"unique, semi-readable targeted key",age_40,False,False,
+tags,tags.id | tags_users.tag_id | tags_users.user_id | user.id,
+tags_users,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+tags_users,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+tags_users,tag_id,bigint,,FOREIGN KEY,associated tag record primary key,123.0,False,MAYBE,
+tags_users,tags_users.user_id | user.id,
+tags_users,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+tags_users,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+time_spent,"represents how long a user spent on a certain screen, implemented for offer cards",,,,,,,
+timed_caches,content,jsonb,,,Cached data,"{ ""uuid"": ""value"", ""dob"": ""timestamp""...}",False,True,
+timed_caches,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+timed_caches,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+timed_caches,key,varchar,255.0,,Optional identifier to allow a single source to have multiple cache items of a single kind,randomalphanumeric,True,False,Keep as is
+timed_caches,kind,varchar,255.0,,Type of cached item,myinfo,False,False,Keep as is
+timed_caches,source_id,varchar,,,polymorphic association: type of the record that is associated with this cache item,123.0,False,True,Key
+timed_caches,source_type,varchar,255.0,,polymorphic association: primary key for the record that is associated with this cache item,User,False,False,Keep as is
+timed_caches,tombstone,timestamp,,,date and time when cached item is to be destroyed,1997-12-17 07:37:16-08,False,False,Keep as is
+timed_caches,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+timestamp,"represents local device timestamp referenced event occurs in localtime
+timestamp_ingest,represents datetime UTC UNIX timestamp of when record was received by the (from data platform),string,,,,True,False,Keep as is
+timezone,Local timezone string for the device,string,,,,True,False,Keep as is
+try_it_self_reports,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+try_it_self_reports,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+try_it_self_reports,offer_progress_id,bigint,,FOREIGN KEY,associated offer_progress record primary key,123.0,False,False,Keep as is
+try_it_self_reports,timezone,varchar,255.0,,"timezone indicated by user's device, at time of report",Asia/Singapore,False,False,Keep as is
+try_it_self_reports,try_it_self_reports.offer_progress_id | offer_progress.id | offer_progress.user_id | users.id,
+try_it_self_reports,try_it_self_reports.offer_progress_id | offer_progress.id | offer_progress.user_id | users.id,<-- Please double-check this. This is only an example.
+try_it_self_reports,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+use_case_labels,calculated_at,timestamp,,,the time at which our Frontend calculated this Use Case Label,1997-12-17 07:37:16-08,False,False,Keep as is
+use_case_labels,calculated_at_timezone,varchar,255.0,,the timezone in which our Frontend calculated this Use Case Label,Asia/Singapore,False,False,Keep as is
+use_case_labels,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+use_case_labels,external_model_id,varchar,255.0,,"an externally provided, static ID for the Frontend model that generated this Use Case Label",cmSedentary,False,False,Keep as is
+use_case_labels,external_model_version,varchar,255.0,,"an externally provided, static version for the Frontend model that generated this Use Case Label",v0.1.0,False,False,Keep as is
+use_case_labels,external_uuid,varchar,255.0,,an externally generated UUID,18B87ED4-D80F-48A3-A3F4-4D0DFC36791A,False,False,Keep as is
+use_case_labels,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+use_case_labels,label_name,varchar,255.0,,the name of the label,cm_sedentary_control,True,False,Keep as is
+use_case_labels,label_status,varchar,255.0,,the status of the label,success,False,False,Keep as is
+use_case_labels,metadata,jsonb,,,extra information that was generated when this was calculated,"{
+use_case_labels,tag_id,bigint,,FOREIGN KEY,associated tag record primary key,123.0,True,False,Keep as is
+use_case_labels,type,varchar,255.0,,the type of the use case label; right now it will only ever be of the Sedentary type,UseCaseLabel::Sedentary,False,False,Keep as is
+use_case_labels,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+use_case_labels,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,key
+user_communications,cancelled,boolean,,,"""true"" indicates a message was scheduled to be sent, but was cancelled, such as when a user withdraws",,True,False,Keep as is
+user_communications,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_communications,events,jsonb,,,logs of attempts to send the communication,"[{""sent"": ""2021-02-18T23:03:00.404Z"" }]",True,False,Keep as is
+user_communications,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_communications,last_enqueued_at,timestamp,,,date and time at which communication was inserted into an asynchronous send queue,1997-12-17 07:37:16-08,True,False,Keep as is
+user_communications,message_id,bigint,,FOREIGN KEY,associated message record primary key,123.0,False,False,Keep as is
+user_communications,options,jsonb,,,JSON object containing optional rules and parameters used in rendering and sending the ultimate communication,{},True,True,Remove
+user_communications,send_at,timestamp,,,date and time at which communication is to be sent,1997-12-17 07:37:16-08,False,False,Keep as is
+user_communications,sent_at,timestamp,,,date and time at which communication was successfully sent,1997-12-17 07:37:16-08,True,False,Keep as is
+user_communications,source_id,bigint,,,polymorphic association: primary key for the record that compelled the sending of this communication,123.0,False,False,Keep as is
+user_communications,source_type,varchar,255.0,,polymorphic association: type of the record that compelled the sending of this communication,Experience,False,False,Keep as is
+user_communications,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_communications,user_communications.user_id | user.id,
+user_communications,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_consents,accepted,boolean,,,false if user does not consent to the provided terms,True,False,False,Keep as is
+user_consents,agreement,varchar,,,any additional parameters relevant to the agreement,"{ ""legal"": ""markdown text"", ""first_name"": ""Userfirst"", ""last_name: ""Userlast"" }",True,True,Key
+user_consents,consent_type,varchar,,,consent type,program_agreement,False,False,Keep as is
+user_consents,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_consents,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_consents,section_id,bigint,,FOREIGN KEY,associated section record primary key for the versioned section that contains the exact text that the user responded to for this consent record.,123.0,False,False,Keep as is
+user_consents,timezone,varchar,,,user's current timezone,Asia/Singapore,False,False,Keep as is
+user_consents,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_consents,user_consents.user_id | user.id,
+user_consents,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_device_accesses,access_type,varchar,255.0,,device resource requiring access,notifications | location,False,False,Keep as is
+user_device_accesses,allow,boolean,,,whether or not user has allowed access,True,False,False,Keep as is
+user_device_accesses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_device_accesses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_device_accesses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_device_accesses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_device_accesses,kind,varchar,255.0,,type of lock and in what context it may be used,submission | available_content | tagging | goal_progress,False,False,Keep as is
+user_device_accesses,timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+user_device_accesses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_device_accesses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_device_accesses,user_device_accesses.user_device_id | user_devices.id | user.devices.user_id | user.id,
+user_device_accesses,user_device_id,bigint,,FOREIGN KEY,associated user_device record primary key,123.0,False,False,Keep as is
+user_device_accesses,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_devices,apns_token,varchar,,,Apple Push Notification service token,caf6e178951ce1effaeff6755c462ec709d051b089d4267581421b8a32a76f4efc50941a510419b65be76933e7b7c506ce7b3bf5b1c95f6de30a3bafcc23b240,True,True,Remove
+user_devices,app_version,varchar,255.0,,Current version of the FE app,1.0.2,True,False,Keep as is
+user_devices,build_number,varchar,255.0,,Current build number of the FE app,1042.0,True,False,Keep as is
+user_devices,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_devices,healthkit_confirmed_at,timestamp,,,date and time user first configures app healthkit access,1997-12-17 07:37:16-08,True,False,Keep as is
+user_devices,healthkit_confirmed_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+user_devices,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_devices,last_healthkit_data_sync,timestamp,,,date and time when user's device last transmitted HK data to the server,2020-01-01 00:05:00,True,False,Keep as is
+user_devices,last_healthkit_data_sync_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+user_devices,last_logged_in_at,timestamp,,,date and time when user last logged into the app with this device,1997-12-17 07:37:16-08,False,False,Keep as is
+user_devices,last_logged_in_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+user_devices,model,varchar,255.0,,device model identifier,"iPhone12,5",False,False,Keep as is
+user_devices,os_name,varchar,255.0,,operating system name,iOS,False,False,Keep as is
+user_devices,os_version,varchar,255.0,,operating system version,13.1,False,False,Keep as is
+user_devices,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_devices,user_devices.user_id | user.id,
+user_devices,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_devices,uuid,varchar,255.0,,device unique identifier,7C3107EF-BD39-40D8-88BC-378BE5EA2160,False,True,Key
+user_devices,watch_paired,boolean,,,Flag indicating whether or not an Apple watch is paired with the phone,true|false,True,False,Keep as is
+user_id,hashed participant ID in Lion (maps to users.uuid),string,,,,True,True,Key
+user_id,user_id of tester accounts were not filtered out in this table; app_analytics contains all data of non-enrolled and tester accounts,,,,,,,
+user_locks,user_locks.user_id | user.id,
+user_responses,answer_identifier,varchar,255.0,,answer key,4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+user_responses,answer_meta,jsonb,,,optional context for the answer_value,"{ ""unit"": ""cm"" }",False,False,Keep as is
+user_responses,answer_value,text,,,"text presented to the user for selectable answers, or text provided by the user in case of free-form input",Here is some text shown in the UI,False,MAYBE,TBD
+user_responses,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_responses,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_responses,identifier,varchar,255.0,,groups response records generated from a single multi-choice response,4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+user_responses,offer_id,bigint,,FOREIGN KEY,associated offer record primary key,123.0,False,False,Keep as is
+user_responses,offer_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+user_responses,offer_progress_id,bigint,,FOREIGN KEY,associated offer_progress record primary key,123.0,True,False,Keep as is
+user_responses,score,integer,,,numerical representation of the answer for statistical analysis,2.0,False,False,Keep as is
+user_responses,section_id,bigint,,FOREIGN KEY,associated section record primary key,123.0,False,False,Keep as is
+user_responses,section_identifier,varchar,255.0,,alpha identifier of record (globally unique),4phz7qSeQhysrKrBCr1uu1,False,False,Keep as is
+user_responses,timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,False,False,Keep as is
+user_responses,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_responses,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_responses,user_responses.user_id | user.id,
+user_setting_versions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_setting_versions,event,varchar,255.0,,"event that occurred to result in this record, e.g. create, update or destroy",update,False,False,Keep as is
+user_setting_versions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_setting_versions,item_id,bigint,,,polymorphic association: primary key for the record that is associated with this version record,123.0,False,False,Keep as is
+user_setting_versions,item_type,varchar,255.0,,polymorphic association: type of the record that is associated with this version record,UserSetting,False,False,Keep as is
+user_setting_versions,object,JSON,,,JSON representation of the original item before the change happened.,"{""id""=>1, ""user_id""=>1, ""locale""=>""en-SG"", ""receive_emails""=>true, ""receive_push_notifications""=>true, ""share_data""=>true, ""gender""=>""male"", ""height""=>227.0, ""weight""=>174.0, ""signed_consent_at""=>""2020-05-04T00:38:46.542Z"", ""timezone""=>""Asia/Tehran"", ""created_at""=>""2020-05-04T00:38:46.645Z"", ""updated_at""=>""2020-05-04T00:38:46.645Z""}",True,True,Key or Remove
+user_setting_versions,object_changes,JSON,,,Changes that happened to the original item. Each change to a field is represented as a key in the JSON object and the corresponding value shows the value before and after a change.,"{""gender""=>[""male"", ""female""], ""updated_at""=>[""2020-05-04T00:38:46.645Z"", ""2020-05-04T00:50:01.820Z""]}",True,True,Key or Remove
+user_setting_versions,user_setting_versions.item_id | user_settings.id | user_settings.user_id | user.id,
+user_setting_versions,whodunnit,varchar,255.0,,name of the authenticated user that performed the change,mchew,True,True,Remove
+user_settings,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_settings,gender,varchar,,,user's gender,female | male | non_binary,True,False,Keep as is
+user_settings,height,double precision,,,height in centimeters,170.0,True,False,Keep as is
+user_settings,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_settings,locale,varchar,,,user's prefered locale,en-SG,False,False,Keep as is
+user_settings,receive_emails,boolean,,,user's preference for receiving emails ,True,True,False,Keep as is
+user_settings,timezone,varchar,,,user's current timezone,Asia/Singapore,True,False,Keep as is
+user_settings,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+user_settings,user_device_id,bigint,,FOREIGN KEY,user's currently logged in device,123.0,False,False,Keep as is
+user_settings,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+user_settings,user_settings.user_id | user.id,
+user_settings,weight,double precision,,,weight in kilograms,70.0,True,False,Keep as is
+user_tokens,user_tokens.user_id | user.id,
+user_versions,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+user_versions,event,varchar,255.0,,"event that occurred to result in this record, e.g. create, update or destroy",update,False,False,Keep as is
+user_versions,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+user_versions,item_id,varchar,,,polymorphic association: primary key for the record that is associated with this version record,123.0,False,True,Key
+user_versions,item_type,varchar,255.0,,polymorphic association: type of the record that is associated with this version record,User,False,False,Keep as is
+user_versions,object,JSON,,,JSON representation of the original item before the change happened.,"{""id""=>14, ""first_name""=>""Stasia"", ""last_name""=>""Osinski"", ""email""=>""lavonne_reinger@legros.info"", ""last_session_id""=>""99ce9ba0-a5a6-4240-bc2e-0bf844db4088"", ""authentication_token""=>""2Aqo2fWXjYc/a5J+GSkEMrggMyHiejuhvi45L8GoDBH49q4dWGMk1MqBExNy5ChdcF3OICTUp5kuSYy16xCu6A=="", ""role""=>""participant"", ""created_at""=>""2020-05-04T01:05:41.456Z"", ""updated_at""=>""2020-05-04T01:05:41.456Z""}",True,True,Key or Remove
+user_versions,object_changes,JSON,,,Changes that happened to the original item. Each change to a field is represented as a key in the JSON object and the corresponding value shows the value before and after a change.,"{""last_name""=>[""Osinski"", ""Sniki""], ""updated_at""=>[""2020-05-04T01:05:41.456Z"", ""2020-05-04T01:06:37.581Z""]}",True,True,Key or Remove
+user_versions,user_versions.item_id | user.id,
+user_versions,whodunnit,varchar,255.0,,name of the authenticated user that performed the change,mchew,True,True,Remove
+users,authentication_token,varchar,255.0,,user's authentication token to be included on every request header.,caf6e178951ce1effaeff6755c462ec709d051b089d4267581421b8a32a76f4efc50941a510419b65be76933e7b7c506ce7b3bf5b1c95f6de30a3bafcc23b240,True,True,Remove
+users,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+users,email,varchar,255.0,,"user's primary, verified email address",john.doe@example.com,True,True,Remove
+users,email_confirm_sent_at,date,,,when email confirmation was sent,2020-01-01 00:05:00,True,False,Keep as is
+users,email_confirm_sent_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+users,email_confirmed_at,date,,,when email was confirmed,2020-01-01 00:05:00,True,False,Keep as is
+users,email_confirmed_at_timezone,varchar,255.0,,"user's device timezone when event occurred (because we don't get the user's current timezone from the link within the email, this value is the user's most recent timezone)",Asia/Singapore,True,False,Keep as is
+users,email_pending,varchar,255.0,,user's email pending verification,new.john@gmail.com,True,True,Remove
+users,first_name,varchar,255.0,,user's legal first name,John,True,True,Remove
+users,hpb_enroll_attempt_ended_at,timestamp,,,System time when HPB enrollment attempts stopped either from successful enrollment or from terminal failure,1997-12-17 07:37:16-08,True,False,Keep as is
+users,id,
+users,id,varchar,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,True,Key
+users,last_name,varchar,255.0,,user's legal last name,Doe,True,True,Remove
+users,role,varchar,255.0,,"enum: Indicates the user's role within the program, and their system permissions",participant | qa | admin,False,False,Keep as is
+users,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+users,uuid,varchar,255.0,,alphanumeric identifier of record (unique within table),53d6cb732733788b1f108f2e63867d61,False,True,Key
+users,withdrawn_at,timestamp,,,date and time when user withdrew from the program,1997-12-17 07:37:16-08,True,False,Keep as is
+users,withdrawn_at_timezone,varchar,255.0,,user's device timezone when event occurred,Asia/Singapore,True,False,Keep as is
+users,withdrawn_reason,text,,,reason why user withdrew from the program,Too good to be true,True,False,Keep as is
+videos,,
+videos,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+videos,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+videos,identifier,varchar,255.0,,internal identifier of video type,nux_video,False,False,Keep as is
+videos,parent_id,bigint,,,polymorphic association: primary key for the record that video is for,125.0,True,False,Keep as is
+videos,parent_type,varchar,255.0,,polymorphic association: type of the record that video is for,Experience::Nux,True,False,Keep as is
+videos,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+videos,url,varchar,255.0,,asset link for video,https://videos.ctfassets.net/aceacdf2,False,False,Keep as is
+view,represents view events,,,,,,,
+voucher_events,confirmation_id,varchar,255.0,,"alpha string identifier generated as part of response returned to VCS when they call the ""used"" voucher endpoint - used as a reference id for troubleshooting purposes)",3e6c9e2a-ce46-4b2b-875b-4effa2ec7f7b,True,False,Keep as is
+voucher_events,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+voucher_events,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+voucher_events,reason,varchar,255.0,,"reason supplied when a voucher is voided (say, via the support tool)",suspected cheating behaviour,True,False,Keep as is
+voucher_events,redemption_datetime,timestamp,,,date and time the voucher was scanned at a POS,1997-12-17 07:37:16-08,True,False,Keep as is
+voucher_events,sku_code,varchar,255.0,,numeric string identifier of voucher type,8895001001001,False,False,Keep as is
+voucher_events,submission_datetime,timestamp,,,Date and time when a scanned voucher was validated with VCS. Potentially different from redemption_datetime for vendors who do not perform real-time validations against VCS.,1997-12-17 07:37:16-08,True,False,Keep as is
+voucher_events,transaction_date,date,,,"date provided in the request made by VCS when they call the ""used"" voucher endpoint - can be used to validate against the voucher's transaction_date or issued_at field. currently ignored.",1997-12-17 00:00:00,True,False,Keep as is
+voucher_events,transaction_number,varchar,255.0,,"numeric string identifier provided in the request made by VCS when they call the ""used"" voucher endpoint - used to validate against the voucher's transaction_number",470116997,True,False,Keep as is
+voucher_events,type,varchar,255.0,,type of voucher event,ScannedVoucherEvent | VoidVoucherEvent,False,False,Keep as is
+voucher_events,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+voucher_events,voucher_code,varchar,255.0,,numeric string identifier of a voucher (provided by VCS),8891064793579,False,False,Keep as is
+voucher_events,voucher_events.voucher_id | vouchers.id | vouchers.user_id | user.id,
+vouchers,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,Keep as is
+vouchers,ended_at,timestamp,,,"date and time when the voucher was scanned, expired or voided (ended_at_type defines how it ended)",1997-12-17 07:37:16-08,True,False,Keep as is
+vouchers,ended_at_type,varchar,255.0,,"indicates if voucher was scanned, expired or voided",scanned | expired | voided,True,False,Keep as is
+vouchers,expiry_date,date,255.0,,date of voucher expiry,1997-12-17 00:00:00,True,False,Keep as is
+vouchers,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,Keep as is
+vouchers,issued_at,timestamp,,,,1997-12-17 07:37:16-08,True,False,Keep as is
+vouchers,order_vouchers_transaction_id,bigint,,FOREIGN KEY,associated order_vouchers_transaction record primary key,123.0,False,False,Keep as is
+vouchers,points,integer,,,number of points to charge against the user's rewards ledger when redeemed by the user,-1500.0,False,False,Keep as is
+vouchers,redemption_datetime,timestamp,,,date and time when a voucher was scanned at a POS,1997-12-17 07:37:16-08,True,False,Keep as is
+vouchers,sku_code,varchar,255.0,,numeric string identifier of voucher type,8895001001001,False,False,Keep as is
+vouchers,submission_datetime,timestamp,,,Date and time when a scanned voucher was validated with VCS. Potentially different from redemption_datetime for vendors who do not perform real-time validations against VCS.,1997-12-17 07:37:16-08,True,False,Keep as is
+vouchers,transaction_number,varchar,255.0,,numeric string identifier generated when issuing a voucher to a user,470116997,True,False,Keep as is
+vouchers,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,Keep as is
+vouchers,used_action_type,varcher,,,"indicates the action taken for the voucher to reach the ""used"" state; possible actions are that the user pressed the ""done"" button or that the 120 second timer has run out",done_button | countdown_timer_ran_out,True,False,Keep as is
+vouchers,used_at,timestamp,,,"date and time when the voucher reached the ""used"" state (see the description of the used_action_type below)",1997-12-17 07:37:16-08,True,False,Keep as is
+vouchers,user_id,varchar,,FOREIGN KEY,associated user record primary key,123.0,True,True,Key
+vouchers,voucher_code,varchar,255.0,,numeric string identifier of a voucher (provided by VCS),8891064793579,False,False,Keep as is
+vouchers,vouchers.user_id | user.id,
+wellness_restore_tasks,created_at,timestamp without timezone,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+wellness_restore_tasks,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+wellness_restore_tasks,refresh_count,integer,,,"number of wellness experience completions/expirations required since created_at, before this task should be executed",6.0,False,False,
+wellness_restore_tasks,tag_cleaning_params,jsonb,,,JSON object containing tag cleaning rules,"{ ""remove"": [""tag_1"", ""tag_2""] }",False,False,
+wellness_restore_tasks,updated_at,timestamp without timezone,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+wellness_restore_tasks,user_id,bigint,,FOREIGN KEY,associated user record primary key,123.0,False,True,Key
+wellness_restore_tasks,wellness_restore_tasks.user_id | user.id,
+widgets,created_at,timestamp,,,date and time of initial record creation,1997-12-17 07:37:16-08,False,False,
+widgets,id,bigint,,PRIMARY KEY,numerical identifier of record (unique within table),123.0,False,False,
+widgets,identifier,varchar,,,alphanumeric representation of widget,confirm_email_input,True,False,
+widgets,order,bigint,,,order of widgets sharing the same parent.,1.0,True,False,
+widgets,parent_id,bigint,,,polymorphic association: object ID of widget or section.,123.0,True,False,
+widgets,parent_type,varchar,,,polymorphic association: object type widget or section.,Widget,True,False,
+widgets,properties,jsonb,,,attributes hash for the widget.,"{ action: ""lion://next_screen"" }",True,False,
+widgets,type,varchar,,,"type of widget (Widget::Input, Widget::List...)",Widget::Input,False,False,
+widgets,updated_at,timestamp,,,date and time of last record update,1997-12-17 07:37:16-08,False,False,
+}
