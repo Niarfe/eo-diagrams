@@ -1,5 +1,5 @@
 # Mermaid uml javascript diagram library
 
 # Sources
-* [mermaid site](http://knsv.github.io/mermaid/)
-* [github repo](https://github.com/knsv/mermaid)
+* [mermaid site](https://mermaid.js.org/)
+* [github repo](https://github.com/mermaid-js/mermaid)
