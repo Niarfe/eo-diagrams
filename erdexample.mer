@@ -1,0 +1,5 @@
+erDiagram
+    answer_choices ||--|| questions : question_id
+    calendar_events ||--|| offers : offer_id
+    calendar_events ||--|| user_id : users 
+    feedbacks ||--|| answer_choide_id : answer_choices

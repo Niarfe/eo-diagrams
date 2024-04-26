@@ -1,0 +1,29 @@
+Error: Skipping row with content <sequenceDiagram
+>
+Error: Skipping row with content <    User-->>+pulumiapi: create tenant abc12cde
+>
+Error: Skipping row with content <    pulumiapi-->>-User: http/2 200
+>
+Error: Skipping row with content <    pulumiapi-->>aws_s3: create bucket s3://evi-abc12de-unst-or-data-ingest/
+>
+Error: Skipping row with content <    User-->>aws_s3: add subfolders dms-cdc/study/
+>
+Error: Skipping row with content <    User-->>aws_s3: upload parquet file to s3://evi-abc12de-unst-or-data-ingest/dms-cdc/study/
+>
+Error: Skipping row with content <    Ingest-->>+aws_s3: taf gile for load to snowflake
+>
+Error: Skipping row with content <    Ingest-->>sf_sga45941: file loaded into snowflake
+>
+Error: Skipping row with content <    User-->>sf_sga45941: use role abc12cde_ingester
+>
+Error: Skipping row with content <    User-->>sf_sga45941: Look in table ABC12CDE_RAW.STUDY.STUDY, there should be data 
+>
+Error: Skipping row with content <
+>
+graph LR
+
+
+classDef Active      fill:#3499DB;
+classDef InRelease   fill:#82E0AA;
+classDef Closed      fill:#566573;
+

@@ -1,0 +1,2032 @@
+foreign_keys:
+  answer_choices:
+  - question_id:questions
+  calendar_events:
+  - offer_id:offers
+  - user_id:users
+  characteristics:
+  - user_id:users
+  connections:
+  - client_id:clients
+  - service_id:services
+  - user_id:users
+  consent_actions:
+  - consent_id:consents
+  consents:
+  - user_id:users
+  content_entries:
+  - parent_id:content_entries
+  creations:
+  - job_id:jobs
+  facts:
+  - tag_id:tags
+  - user_id:users
+  feedback_components:
+  - content_entrie_id:content_entries
+  - question_id:questions
+  feedbacks:
+  - answer_choice_id:answer_choices
+  - feedback_component_id:feedback_components
+  - user_id:users
+  offer_progresses:
+  - offer_id:offers
+  - user_id:users
+  offers:
+  - content_entrie_id:content_entries
+  - previous_version_id:offers
+  - disqualification_rule_id:rules
+  - targeting_rule_id:rules
+  page_info_screens:
+  - content_entrie_id:content_entries
+  - page_id:pages
+  page_progresses:
+  - page_id:pages
+  - user_id:users
+  page_questions:
+  - content_entrie_id:content_entries
+  - page_id:pages
+  - question_id:questions
+  pages:
+  - offer_id:offers
+  - page_targeting_rule_id:rules
+  points_deltas:
+  - ledger_entry_id:points_ledger_entries
+  points_ledger_entries:
+  - ledger_id:points_ledgers
+  - rule_id:points_rules
+  points_ledger_entries_limits:
+  - ledger_entry_id:points_ledger_entries
+  - limit_id:points_limits
+  points_ledgers:
+  - user_id:users
+  points_rule_limits:
+  - limit_id:points_limits
+  - rule_id:points_rules
+  predicates:
+  - rule_id:rules
+  - tag_id:tags
+  questions:
+  - targeting_tag_id:tags
+  responses:
+  - answer_choice_id:answer_choices
+  - offer_id:offers
+  - page_progress_id:page_progresses
+  - page_question_id:page_questions
+  - user_id:users
+  rule_path_predicates:
+  - predicate_id:predicates
+  - rule_id:rules
+  rules:
+  - parent_id:rules
+  screens:
+  - content_entrie_id:content_entries
+  - offer_id:offers
+  - settings_container_id:settings_containers
+  services:
+  - client_id:clients
+  - provider_id:providers
+  vouchers:
+  - user_id:users
+tables:
+  answer_choices:
+    columns:
+      content_entry_id:
+        comment: '"desc=ID from CMS; ie=Contentful Entry ID;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      exclusive:
+        comment: '"desc=If this answer is chosen can any others be selected; ie=true|false;"'
+        type: boolean
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=Contentful identifier; ie=Contentful AnswerChoice ID;"'
+        nullable: 'false'
+        type: string
+      question_id:
+        comment: '"desc=Foreign key for Question association; ie=Question;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      score:
+        comment: '"desc=The score received for choosing this answer; ie=100;"'
+        type: integer
+      secondary:
+        default: 'false'
+        type: boolean
+      tag_value:
+        comment: '"desc=Contentful value for tagging responses; ie=male;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      value:
+        comment: '"desc=The answer to be displayed to the user; ie=What sex are you?;"'
+        type: string
+    indexes:
+      index_answer_choices_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+      index_answer_choices_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_answer_choices_on_question_id:
+        columns:
+        - question_id
+        unique: 'false'
+      index_answer_choices_on_tag_value:
+        columns:
+        - tag_value
+        unique: 'false'
+  calendar_events:
+    columns:
+      cancelled_at:
+        comment: '"desc=Time at which the event is cencelled;"'
+        type: datetime
+      cancelled_at_timezone:
+        comment: '"desc=Timezone at which event is cancelled; ie=''Pacific Time (US
+          & Canada)'';"'
+        type: string
+      completed_at:
+        comment: '"desc=Time at which the event is finished executing;"'
+        type: datetime
+      completed_at_timezone:
+        comment: '"desc=Timezone at which event finished executing; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      created_at:
+        comment: '"desc=Default timestamps;"'
+        nullable: 'false'
+        type: datetime
+      executes_at:
+        comment: '"desc=Time at which the event is executed;"'
+        nullable: 'false'
+        type: datetime
+      executes_at_timezone:
+        comment: '"desc=Timezone at which event starts executing; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      occurrence:
+        comment: '"desc=Ordinal occurrence of the event; ie=1"'
+        type: integer
+      offer_id:
+        comment: '"desc=Foreign key for Offer association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      recurring:
+        comment: '"desc=Is this a recurring event; ie=true|false;"'
+        nullable: 'false'
+        type: boolean
+      updated_at:
+        comment: '"desc=Default timestamps;"'
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+    indexes:
+      index_calendar_events_on_offer_id:
+        columns:
+        - offer_id
+        unique: 'false'
+      index_calendar_events_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  characteristic_definitions:
+    columns:
+      created_at:
+        nullable: 'false'
+        type: datetime
+      data_type:
+        comment: '"desc=Type of data stored for this characteristic, such as string,
+          integer, boolean, float, datetime; ie=string"'
+        nullable: 'false'
+        type: string
+      description:
+        comment: '"desc=Internal description of characteristic;"'
+        type: string
+      fact:
+        comment: '"desc=True if this characteristic is also a fact for targeting purposes;"'
+        default: 'true'
+        nullable: 'false'
+        type: boolean
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        comment: '"desc=Name of user characteristic, such as gender; ie=gender;"'
+        nullable: 'false'
+        type: string
+      pii:
+        comment: '"desc=True if this characteristic represents PII and must be obscured
+          for access by third parties;"'
+        default: 'false'
+        nullable: 'false'
+        type: boolean
+      source:
+        comment: '"desc=Source of this characteristic; ie=singpass_myinfo;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_characteristic_definitions_on_source_and_name:
+        columns:
+        - source
+        - name
+        unique: 'true'
+  characteristics:
+    columns:
+      characteristic_definition_id:
+        comment: '"desc=Foreign key for UserCharacteristic association;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      expired_at:
+        comment: '"desc=When this characteristic value was deleted or replaced"'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      value_boolean:
+        comment: '"desc=Value of boolean, if a boolean;"'
+        type: boolean
+      value_datetime:
+        comment: '"desc=Value of datetime, if a datetime;"'
+        type: datetime
+      value_number:
+        comment: '"desc=Value of integer or float, if an integer or float;"'
+        type: float
+      value_string:
+        comment: '"desc=Value of string, if a string;"'
+        type: string
+      value_timezone:
+        comment: '"desc=Timezone, if a datetime;"'
+        type: string
+    indexes:
+      index_characteristics_on_characteristic_definition_id:
+        columns:
+        - characteristic_definition_id
+        unique: 'false'
+      index_characteristics_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  clients:
+    columns:
+      config:
+        comment: '"desc=Client configuration;"'
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        comment: '"desc=A short name to represent the client;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes: {}
+  connections:
+    columns:
+      client_id:
+        comment: '"desc=Foreign key for Client association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      data:
+        comment: '"desc=Connection data from provider;"'
+        type: jsonb
+      external_id:
+        comment: '"desc=Vendor participant assigned id;"'
+        nullable: 'false'
+        type: string
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      service_id:
+        comment: '"desc=Foreign key for Service association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      status:
+        comment: '"desc=Internal connection status; ie= active, disconnected, failed;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+    indexes:
+      index_connections_on_client_id:
+        columns:
+        - client_id
+        unique: 'false'
+      index_connections_on_external_id:
+        columns:
+        - external_id
+        unique: 'false'
+      index_connections_on_service_id:
+        columns:
+        - service_id
+        unique: 'false'
+      index_connections_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  consent_actions:
+    columns:
+      action:
+        comment: '"desc=Consent action; ie=accepted,revoked,expired;"'
+        nullable: 'false'
+        type: string
+      callback_completed_at:
+        comment: '"desc=Timestamp to track when action callbacks completed;"'
+        precision: nil
+        type: datetime
+      callback_started_at:
+        comment: '"desc=Timestamp to track when action callbacks started;"'
+        precision: nil
+        type: datetime
+      consent_id:
+        comment: '"desc=Foreign key for Consent association; ie=Consent;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_consent_actions_on_consent_id:
+        columns:
+        - consent_id
+        unique: 'false'
+  consents:
+    columns:
+      agreement:
+        comment: '"desc=Additional metadata or signing details for consent, i.e. first_name,
+          last_name;"'
+        type: jsonb
+      consentable_id:
+        comment: '"desc=Foreign key and type for the consented object association;"'
+        nullable: 'false'
+        type: bigint
+      consentable_type:
+        nullable: 'false'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      expires_at:
+        comment: '"desc=When the consent expires; ie=timestamp"'
+        precision: nil
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      signed_at:
+        comment: '"desc=When the consent was signed; ie=timestamp"'
+        precision: nil
+        type: datetime
+      type:
+        comment: '"desc=The specific type of consent; ie=program|data_share_apple|etc;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      version:
+        comment: '"desc=Version of consent being signed, starting from 1; ie=1;"'
+        nullable: 'false'
+        type: integer
+    indexes:
+      index_consents_on_consentable:
+        columns:
+        - consentable_type
+        - consentable_id
+        unique: 'false'
+      index_consents_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  content_entries:
+    columns:
+      content:
+        comment: '"desc=JSON content parsed from CMS; ie={id: 1, content_identifier:
+          ''OFH_Demo_Survey''};"'
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=ID from CMS; ie=Contentful Entry ID;"'
+        nullable: 'false'
+        type: string
+      internal_name:
+        comment: '"desc=Content Identifier from CMS; ie=OFH_Demo_Survey;"'
+        nullable: 'false'
+        type: string
+      internal_version:
+        comment: '"desc=Internal incremental version; ie=1;"'
+        nullable: 'false'
+        type: integer
+      parent_id:
+        comment: '"desc=The rule parent of the targeting logic tree. root node parent_id
+          IS NULL;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      revision:
+        comment: '"desc=Internal incremental version; ie=1;"'
+        nullable: 'false'
+        type: integer
+      type:
+        comment: '"desc=STI type; ie=ContentEntry::Onboarding;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_content_entries_on_parent_id:
+        columns:
+        - parent_id
+        unique: 'false'
+      index_uniq_content_entries_children:
+        columns:
+        - identifier
+        - parent_id
+        unique: 'true'
+      index_uniq_content_entries_version:
+        columns:
+        - identifier
+        - internal_version
+        unique: 'true'
+  content_translations:
+    columns:
+      content:
+        comment: '"desc=JSON content parsed from CMS;"'
+        type: jsonb
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association;"'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      default_locale:
+        comment: '"desc=Is this the default locale for the page content"'
+        type: boolean
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      locale:
+        comment: '"desc=content language abbreviation; ie= ''en'';"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_content_translations_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+  creations:
+    columns:
+      creatable_id:
+        comment: '"desc=ID for ''creatable'' polymorphic assocation; ie=123;"'
+        type: integer
+      creatable_type:
+        comment: '"desc=Type of ''creatable'' polymorphic association; ie=User;"'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      job_id:
+        comment: '"desc=Foreign key for Job association; ie=Job;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_creations_on_job_id:
+        columns:
+        - job_id
+        unique: 'false'
+  external_ledger_sources:
+    columns:
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      timezone:
+        comment: '"desc=Timezone where this transaction occurred; ie=Asia/Singapore"'
+        type: string
+      type:
+        comment: '"desc=Type of transaction; ie=single|milestone|redemption|etc"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      vendor:
+        comment: '"desc=Project or client identifier; ie=lion"'
+        nullable: 'false'
+        type: string
+    indexes: {}
+  facts:
+    columns:
+      archived_at:
+        comment: '"desc=Fact expiration timestamp. Archived facts are filtered out
+          for targeting;ie=2023-04-20T16:20:00+08:00;"'
+        precision: nil
+        type: datetime
+      created_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      occurred_at:
+        comment: '"desc=When the event that generated this fact occurred;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      tag_id:
+        comment: '"desc=Tag of which this fact relates to;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: integer
+      updated_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=User that this fact belongs to;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      value_date:
+        comment: '"desc=Date value of tag_id. to be compared with predicates.value_date;ie=2023-04-20T16:20:00+08:00;"'
+        type: date
+      value_index:
+        comment: '"desc=index to group multiple values for the same tag_id;ie=0"'
+        default: '0'
+        limit: '2'
+        nullable: 'false'
+        type: integer
+      value_numeric:
+        comment: '"desc=Numeric value of tag_id. to be compared with predicates.value_numeric;ie=123"'
+        type: float
+      value_string:
+        comment: '"desc=String value of tag_id. to be compared with predicates.value_string;ie=completed;"'
+        type: string
+    indexes:
+      index_facts_on_tag_id:
+        columns:
+        - tag_id
+        unique: 'false'
+      index_facts_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+      index_facts_on_user_id_and_tag_id_and_value_index:
+        columns:
+        - user_id
+        - tag_id
+        - value_index
+        unique: 'true'
+  feedback_components:
+    columns:
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=ID from CMS; ie=Contentful FeedbackComponent ID;"'
+        nullable: 'false'
+        type: string
+      parent_id:
+        comment: '"desc=Polymorphic Parent association; ie=Screen;"'
+        nullable: 'false'
+        type: bigint
+      parent_type:
+        nullable: 'false'
+        type: string
+      position:
+        comment: '"desc=Position of question in a section; ie=1;"'
+        type: integer
+      question_id:
+        comment: '"desc=Foreign key for Question association; ie=Question;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      skippable:
+        comment: '"desc=Can a user skip this question; ie=true|false;"'
+        default: 'true'
+        type: boolean
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_feedback_components_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+      index_feedback_components_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_feedback_components_on_parent:
+        columns:
+        - parent_type
+        - parent_id
+        unique: 'false'
+      index_feedback_components_on_question_id:
+        columns:
+        - question_id
+        unique: 'false'
+  feedbacks:
+    columns:
+      answer_choice_id:
+        comment: '"desc=Foreign key for AnswerChoice association; ie=AnswerChoice;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      feedback_component_id:
+        comment: '"desc=Foreign key for FeedbackComponent association; ie=FeedbackComponent;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      skipped:
+        comment: '"desc=True if response is skipped; ie=true"'
+        default: 'false'
+        type: boolean
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      value_boolean:
+        comment: '"desc=Boolean value if question is boolean input; ie=true"'
+        type: boolean
+      value_date:
+        comment: '"desc=Date value if question is date input; ie=2023-04-20"'
+        type: datetime
+      value_numeric:
+        comment: '"desc=Numeric value if question is numeric input; ie=18"'
+        type: float
+      value_score:
+        comment: '"desc=The score received for this answer; ie=100;"'
+        type: integer
+      value_string:
+        comment: '"desc=String value if question is string input; ie=2023-04-20"'
+        type: string
+    indexes:
+      index_feedbacks_on_answer_choice_id:
+        columns:
+        - answer_choice_id
+        unique: 'false'
+      index_feedbacks_on_feedback_component_id:
+        columns:
+        - feedback_component_id
+        unique: 'false'
+      index_feedbacks_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  jobs:
+    columns:
+      batch_id:
+        comment: '"desc=Batch ID supplied by sidekiq; ie=BEYAROYgASZ7Kw;"'
+        type: string
+      completed_at:
+        comment: '"desc=Timestamp for when Job completed; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=UUID identifier of job; ie=f5339cbb-c5be-4300-80dc-5063b6f90259;"'
+        nullable: 'false'
+        type: string
+      params:
+        comment: '"desc=JSON params of the Job; ie={\"count\": 10, \"randomize_everything\":
+          true};"'
+        type: jsonb
+      type:
+        comment: '"desc=STI type; ie=Job::BulkCreateUser;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_jobs_on_identifier:
+        columns:
+        - identifier
+        unique: 'true'
+  offer_progresses:
+    columns:
+      aasm_state:
+        comment: '"desc=State of Offer progress using AASM state machine; ie=''available''"'
+        nullable: 'false'
+        type: string
+      available_at:
+        comment: '"desc=Timestamp for when Offer is available to User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      completed_at:
+        comment: '"desc=Timestamp for when User completed Offer; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      completed_at_timezone:
+        comment: '"desc=User timezone when Offer was completed; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      dismissed_at:
+        comment: '"desc=Timestamp for when User dismissed Offer; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      dismissed_at_timezone:
+        comment: '"desc=User timezone when Offer was dismissed; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      disqualified_at:
+        comment: '"desc=Timestamp for when User is disqualified from Offer; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      disqualified_at_timezone:
+        comment: '"desc=User timezone when Offer was disqualified; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      expired_at:
+        comment: '"desc=Timestamp for when Offer expired for User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      expires_at:
+        comment: '"desc=Timestamp for at which Offer expires for User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      offer_id:
+        comment: '"desc=Foreign key for Offer association; ie=Offer;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      opt_in_window_expires_at:
+        comment: '"desc=Timestamp at which the opt-in window expires;ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      opted_in_at:
+        comment: '"desc=Timestamp for when Offer is opted in by User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      opted_in_at_timezone:
+        comment: '"desc=User timezone when Offer is opted in; ie=''Pacific Time (US
+          & Canada)'';"'
+        type: string
+      opted_out_at:
+        comment: '"desc=Timestamp for when User opted out of offer; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      opted_out_at_timezone:
+        comment: '"desc=User timezone when Offer was opted out; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      served_at:
+        comment: '"desc=Timestamp for when Offer was served to User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      served_at_timezone:
+        comment: '"desc=User timezone when Offer served to User; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: string
+      targeted_at:
+        comment: '"desc=Timestamp for when Offer is targeted to User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      viewed_at:
+        comment: '"desc=Timestamp for when Offer is viewed by User; ie=2023-04-20T16:20:00+08:00;"'
+        type: datetime
+      viewed_at_timezone:
+        comment: '"desc=User timezone when Offer is viewed; ie=''Pacific Time (US
+          & Canada)'';"'
+        type: string
+    indexes:
+      index_offer_progresses_on_aasm_state:
+        columns:
+        - aasm_state
+        unique: 'false'
+      index_offer_progresses_on_offer_id:
+        columns:
+        - offer_id
+        unique: 'false'
+      index_offer_progresses_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+      index_offer_progresses_on_user_id_and_offer_id:
+        columns:
+        - user_id
+        - offer_id
+        unique: 'true'
+  offers:
+    columns:
+      allow_back_navigation:
+        comment: '"desc=Is a user allowed to move back in the survey; ie=true|false;"'
+        type: boolean
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      disqualification_rule_id:
+        comment: '"desc=Foreign key for Rule association; ie=Rule;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=ID from CMS; ie=Contentful Survey ID;"'
+        type: string
+      internal_version:
+        comment: '"desc=Internal incremental version; ie=1;"'
+        type: integer
+      previous_version_id:
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      priority:
+        comment: '"desc=Order in which offers should be displayed in feed; ie=0"'
+        type: integer
+      targeting_rule_id:
+        comment: '"desc=Foreign key for Rule association; ie=Rule;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      type:
+        comment: '"desc=STI type; ie=Offer::Survey;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_offers_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'true'
+      index_offers_on_disqualification_rule_id:
+        columns:
+        - disqualification_rule_id
+        unique: 'false'
+      index_offers_on_previous_version_id:
+        columns:
+        - previous_version_id
+        unique: 'false'
+      index_offers_on_targeting_rule_id:
+        columns:
+        - targeting_rule_id
+        unique: 'false'
+      index_offers_on_type:
+        columns:
+        - type
+        unique: 'false'
+  page_info_screens:
+    columns:
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=UUID identifier; ie=f5339cbb-c5be-4300-80dc-5063b6f90259"'
+        type: uuid
+      page_id:
+        comment: '"desc=Foreign key for Page association; ie=Page;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      position:
+        comment: '"desc=Position of info screen in a Page; ie=1;"'
+        type: integer
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_page_info_screens_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+      index_page_info_screens_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_page_info_screens_on_page_id:
+        columns:
+        - page_id
+        unique: 'false'
+  page_progresses:
+    columns:
+      aasm_state:
+        comment: '"desc=State of Offer progress using AASM state machine; ie=''available''"'
+        nullable: 'false'
+        type: string
+      cancelled_at:
+        comment: '"desc=User timezone when Offer was cancelled; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: datetime
+      cancelled_at_timezone:
+        comment: '"Timestamp for when Offer was cancelled by User; ie=2023-04-20T16:20:00+08:00;"'
+        type: string
+      completed_at:
+        comment: '"desc=User timezone when Offer was completed; ie=''Pacific Time
+          (US & Canada)'';"'
+        type: datetime
+      completed_at_timezone:
+        comment: '"Timestamp for when Offer was completed by User; ie=2023-04-20T16:20:00+08:00;"'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      page_id:
+        comment: '"desc=Foreign key for Page association; ie=Page;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      served_at:
+        comment: '"desc=User timezone when Offer was served; ie=''Pacific Time (US
+          & Canada)'';"'
+        type: datetime
+      served_at_timezone:
+        comment: '"Timestamp for when Offer was served to User; ie=2023-04-20T16:20:00+08:00;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      viewed_at:
+        comment: '"desc=User timezone when Offer was viewed; ie=''Pacific Time (US
+          & Canada)'';"'
+        type: datetime
+      viewed_at_timezone:
+        comment: '"Timestamp for when Offer was viewed by User; ie=2023-04-20T16:20:00+08:00;"'
+        type: string
+    indexes:
+      index_page_progresses_on_aasm_state:
+        columns:
+        - aasm_state
+        unique: 'false'
+      index_page_progresses_on_page_id:
+        columns:
+        - page_id
+        unique: 'false'
+      index_page_progresses_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+      index_page_progresses_on_user_id_and_page_id:
+        columns:
+        - user_id
+        - page_id
+        unique: 'false'
+  page_questions:
+    columns:
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      editable:
+        comment: '"desc=Is the answer to this question changeable; ie=true|false;"'
+        type: boolean
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=UUID identifier; ie=f5339cbb-c5be-4300-80dc-5063b6f90259"'
+        type: uuid
+      page_id:
+        comment: '"desc=Foreign key for Page association; ie=Page;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      position:
+        comment: '"desc=Position of question in a page; ie=1;"'
+        type: integer
+      question_id:
+        comment: '"desc=Foreign key for Question association; ie=Question;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      skippable:
+        comment: '"desc=Can a user skip this question; ie=true|false;"'
+        type: boolean
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_page_questions_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'true'
+      index_page_questions_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_page_questions_on_page_id:
+        columns:
+        - page_id
+        unique: 'false'
+      index_page_questions_on_question_id:
+        columns:
+        - question_id
+        unique: 'false'
+  page_translations:
+    columns:
+      content:
+        comment: '"desc=JSON content parsed from CMS;"'
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        type: datetime
+      default_locale:
+        comment: '"desc=Is this the default locale for the page content"'
+        type: boolean
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      locale:
+        comment: '"desc=content language abbreviation; ie= ''en'';"'
+        type: string
+      page_id:
+        comment: '"desc=Foreign key for Page association;"'
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_page_translations_on_page_id:
+        columns:
+        - page_id
+        unique: 'false'
+  pages:
+    columns:
+      content:
+        comment: '"desc=Compiled JSON for all questions and answers in this page;
+          ie={name: ''test'', questions: {}};"'
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=UUID identifier; ie=f5339cbb-c5be-4300-80dc-5063b6f90259"'
+        nullable: 'false'
+        type: uuid
+      offer_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      page_targeting_rule_id:
+        comment: '"desc=Foreign key for Rule association; ie=Rule;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      position:
+        comment: '"desc=Position of page in a survey; ie=1;"'
+        type: integer
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_pages_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_pages_on_offer_id:
+        columns:
+        - offer_id
+        unique: 'false'
+      index_pages_on_page_targeting_rule_id:
+        columns:
+        - page_targeting_rule_id
+        unique: 'false'
+  points_deltas:
+    columns:
+      context:
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      delta:
+        nullable: 'false'
+        type: integer
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      ledger_entry_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+    indexes:
+      index_points_deltas_on_ledger_entry_id:
+        columns:
+        - ledger_entry_id
+        unique: 'false'
+  points_ledger_entries:
+    columns:
+      context:
+        type: jsonb
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      description:
+        type: text
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      ledger_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      points:
+        type: integer
+      rule_id:
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      source_timestamp:
+        type: datetime
+      subject_id:
+        nullable: 'false'
+        type: bigint
+      subject_type:
+        nullable: 'false'
+        type: string
+      timestamp:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      timezone:
+        type: string
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      uuid:
+        type: string
+    indexes:
+      index_ledger_entries_on_ledger_id_and_rule_id_and_subject_id:
+        columns:
+        - ledger_id
+        - rule_id
+        - subject_id
+        - subject_type
+        unique: 'true'
+      index_points_ledger_entries_on_ledger_id:
+        columns:
+        - ledger_id
+        unique: 'false'
+      index_points_ledger_entries_on_rule_id:
+        columns:
+        - rule_id
+        unique: 'false'
+      index_points_ledger_entries_on_subject_type_and_subject_id:
+        columns:
+        - subject_type
+        - subject_id
+        unique: 'false'
+      index_points_ledger_entries_on_uuid:
+        columns:
+        - uuid
+        unique: 'true'
+  points_ledger_entries_limits:
+    columns:
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      ledger_entry_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      limit_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      points_rejected:
+        type: integer
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_points_ledger_entries_limits_on_ledger_entry_and_limit:
+        columns:
+        - ledger_entry_id
+        - limit_id
+        unique: 'true'
+      index_points_ledger_entries_limits_on_ledger_entry_id:
+        columns:
+        - ledger_entry_id
+        unique: 'false'
+      index_points_ledger_entries_limits_on_limit_id:
+        columns:
+        - limit_id
+        unique: 'false'
+  points_ledgers:
+    columns:
+      balance:
+        default: '0'
+        type: integer
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      project:
+        type: string
+      type:
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      user_id:
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+    indexes:
+      index_points_ledgers_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  points_limits:
+    columns:
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        type: string
+      priority:
+        type: bigint
+      source_code:
+        type: text
+      source_code_digest:
+        type: string
+      type:
+        type: string
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+    indexes: {}
+  points_rule_limits:
+    columns:
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      limit_id:
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      order:
+        type: integer
+      rule_id:
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+    indexes:
+      index_points_rule_limits_on_limit_id:
+        columns:
+        - limit_id
+        unique: 'false'
+      index_points_rule_limits_on_rule_id:
+        columns:
+        - rule_id
+        unique: 'false'
+  points_rules:
+    columns:
+      created_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        type: string
+      priority:
+        default: '10'
+        nullable: 'false'
+        type: integer
+      source_code:
+        type: text
+      source_code_digest:
+        type: string
+      status:
+        default: '"active"'
+        nullable: 'false'
+        type: string
+      type:
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        precision: nil
+        type: datetime
+    indexes: {}
+  predicates:
+    columns:
+      created_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      occurred_at_max:
+        comment: '"desc=The interval between NOW() and fact.created_at must be lower
+          than fact_maximum_age, i.e.: Onboarding Completed at most 1 year ago;ie=interval
+          1 ''day''"'
+        type: interval
+      occurred_at_min:
+        comment: '"desc=The interval between NOW() and fact.created_at must be greater
+          than fact_minimum_age, i.e.: Onboarding Completed at least 30 days ago;ie=interval
+          1 ''day''"'
+        type: interval
+      operator:
+        default: '"eq", null: false, comment: "'
+        limit: '2'
+        type: string
+      rule_id:
+        comment: '"desc=The rule_id of which this predicate will be evaluated within;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: integer
+      tag_id:
+        comment: '"desc=The tag_id of which this predicate is valid for. to be joined
+          with facts.tag_id;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: integer
+      updated_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      value_date:
+        comment: '"desc=Date value for the tag_id, to be compared with facts.value_date;ie=2023-04-20T16:20:00+08:00;"'
+        type: date
+      value_numeric:
+        comment: '"desc=Numeric value for the tag_id, to be compared with facts.value_numeric;ie=123;"'
+        type: float
+      value_string:
+        comment: '"desc=String value for the tag_id, to be compared with facts.value_string;ie=completed"'
+        type: string
+    indexes:
+      idx_predicates_unique_operator_tag_id_rule_id:
+        columns:
+        - operator
+        - tag_id
+        - rule_id
+        unique: 'true'
+      index_predicates_on_rule_id:
+        columns:
+        - rule_id
+        unique: 'false'
+      index_predicates_on_tag_id:
+        columns:
+        - tag_id
+        unique: 'false'
+  providers:
+    columns:
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        comment: '"desc=Short name to represent the provider; ie= Flow, Vita;"'
+        type: string
+      status:
+        comment: '"desc=Provider API internal status; ie= active, inactive;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      url:
+        comment: '"desc=Provider API base url;"'
+        type: string
+    indexes: {}
+  questions:
+    columns:
+      allow_prefer_not_to_answer:
+        comment: '"desc=Should we show a skip option for this question; ie=true|false;"'
+        type: boolean
+      content_entry_id:
+        comment: '"desc=ID from CMS; ie=Contentful Entry ID;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      description:
+        comment: '"desc=Description of the question; ie=What state do you live in?;"'
+        type: string
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=Contentful identifier; ie=Contentful Question ID;"'
+        nullable: 'false'
+        type: string
+      max_choices:
+        comment: '"desc=Maximum choices allowed for the question; ie=2;"'
+        type: integer
+      min_choices:
+        comment: '"desc=Minimum choices allowed for the question; ie=1;"'
+        type: integer
+      tag_id:
+        comment: '"desc=Foreign key for Tag association; ie=Tag;"'
+        type: bigint
+      targeting_tag_id:
+        comment: '"desc=Foreign key for Tag association; ie=Tag;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      type:
+        comment: '"desc=STI type; ie=Question::MultipleChoice;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_questions_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+      index_questions_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+      index_questions_on_tag_id:
+        columns:
+        - tag_id
+        unique: 'false'
+      index_questions_on_targeting_tag_id:
+        columns:
+        - targeting_tag_id
+        unique: 'false'
+  redeem_voucher_transactions:
+    columns:
+      batch_identifier:
+        comment: '"desc=identifies a group of voucher redemptions a part of one request"'
+        nullable: 'false'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      ended_at:
+        comment: '"desc=when the transaction was completed"'
+        type: datetime
+      ended_at_type:
+        comment: '"desc=success or failure status of the transaction"'
+        type: string
+      failure_cause:
+        comment: '"desc=error details in the case the transaction fails"'
+        type: string
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      voucher_id:
+        type: bigint
+    indexes:
+      index_redeem_voucher_transactions_on_voucher_id:
+        columns:
+        - voucher_id
+        unique: 'false'
+  responses:
+    columns:
+      answer_choice_id:
+        comment: '"desc=Foreign key for AnswerChoice association; ie=AnswerChoice;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      invalidated_at:
+        type: datetime
+      offer_id:
+        comment: '"desc=Foreign key for Offer association; ie=Offer;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      page_progress_id:
+        comment: '"desc=Foreign key for PageProgress association; ie=PageProgress;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      page_question_id:
+        comment: '"desc=Foreign key for PageQuestion association; ie=PageQuestion;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      skipped:
+        comment: '"desc=True if response is skipped; ie=true"'
+        default: 'false'
+        type: boolean
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc=Foreign key for User association; ie=User;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      value_boolean:
+        type: boolean
+      value_date:
+        comment: '"desc=Date value if question is date input; ie=2023-04-20"'
+        type: datetime
+      value_identifier:
+        type: string
+      value_index:
+        default: '0'
+        limit: '2'
+        nullable: 'false'
+        type: integer
+      value_numeric:
+        comment: '"desc=Numeric value if question is numeric input; ie=18"'
+        type: float
+      value_score:
+        comment: '"desc=The score received for this answer; ie=100;"'
+        type: integer
+      value_string:
+        comment: '"desc=String value if question is string input; ie=2023-04-20"'
+        type: string
+    indexes:
+      index_responses_on_answer_choice_id:
+        columns:
+        - answer_choice_id
+        unique: 'false'
+      index_responses_on_offer_id:
+        columns:
+        - offer_id
+        unique: 'false'
+      index_responses_on_page_progress_id:
+        columns:
+        - page_progress_id
+        unique: 'false'
+      index_responses_on_page_question_id:
+        columns:
+        - page_question_id
+        unique: 'false'
+      index_responses_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
+  rule_path_predicates:
+    columns:
+      created_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      path_index:
+        comment: '"desc=The path_index within rule_id that this predicate is part
+          of;ie=0"'
+        limit: '2'
+        nullable: 'false'
+        type: integer
+      predicate_id:
+        comment: '"desc=One predicate_id in the rule_path_id array;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: integer
+      rule_id:
+        comment: '"desc=The rule that this predicate is part of;ie=123"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: integer
+      should_match:
+        comment: '"desc=Boolean flag to determin if this predicate must match or not
+          within this path_index;ie=true"'
+        nullable: 'false'
+        type: boolean
+      updated_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_rule_path_predicates_on_predicate_id:
+        columns:
+        - predicate_id
+        unique: 'false'
+      index_rule_path_predicates_on_rule_id:
+        columns:
+        - rule_id
+        unique: 'false'
+      index_unique_rule_path_predicate:
+        columns:
+        - rule_id
+        - predicate_id
+        - path_index
+        - should_match
+        unique: 'true'
+  rules:
+    columns:
+      created_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      match_any:
+        any: 'true'
+        nullable: 'false'
+        type: boolean
+      negate:
+        comment: '"desc=Flat to negate or not this node. NOT AND | NOT OR;ie=false"'
+        nullable: 'false'
+        type: boolean
+      parent_id:
+        comment: '"desc=The rule parent of the targeting logic tree. root node parent_id
+          IS NULL;ie=123"'
+        constraint_type: FOREIGN_KEY
+        type: integer
+      updated_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_rules_on_parent_id:
+        columns:
+        - parent_id
+        unique: 'false'
+  screens:
+    columns:
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      offer_id:
+        comment: '"desc=Foreign key for Offer association; ie=Offer;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      settings_container_id:
+        comment: '"desc=Foreign key for SettingsContainer association; ie=SettingsContainer;"'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+      title:
+        nullable: 'false'
+        type: string
+      type:
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_screens_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'true'
+      index_screens_on_offer_id:
+        columns:
+        - offer_id
+        unique: 'false'
+      index_screens_on_settings_container_id:
+        columns:
+        - settings_container_id
+        unique: 'false'
+  services:
+    columns:
+      client_id:
+        comment: '"desc=Foreign key for Client association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      provider_id:
+        comment: '"desc=Foreign key for Provider association;"'
+        constraint_type: FOREIGN_KEY
+        nullable: 'false'
+        type: bigint
+      status:
+        comment: '"desc=Internal service status; ie= active, inactive;"'
+        type: string
+      type:
+        comment: '"desc=Service type; ie= Fitbit;"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      url:
+        comment: '"desc=Service specific url;"'
+        type: string
+    indexes:
+      index_services_on_client_id:
+        columns:
+        - client_id
+        unique: 'false'
+      index_services_on_provider_id:
+        columns:
+        - provider_id
+        unique: 'false'
+  settings_containers:
+    columns:
+      content_entry_id:
+        comment: '"desc=Foreign key for ContentEntry association; ie=ContentEntry;"'
+        nullable: 'false'
+        type: bigint
+      created_at:
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      identifier:
+        comment: '"desc=ID from CMS; ie=Contentful FeedbackComponent ID;"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_settings_containers_on_content_entry_id:
+        columns:
+        - content_entry_id
+        unique: 'false'
+      index_settings_containers_on_identifier:
+        columns:
+        - identifier
+        unique: 'false'
+  tags:
+    columns:
+      category:
+        comment: '"desc=Group to which tag belongs; ie=demographics"'
+        type: string
+      created_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      name:
+        comment: '"desc=Concise string used as identifier; ie=gender;"'
+        nullable: 'false'
+        type: string
+      type:
+        comment: '"desc=Tag type to determine fact and predicate format;ie=Tag::String"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        comment: '"desc=Rails controlled timestamps of DB operations;ie=2023-04-20T16:20:00+08:00;"'
+        nullable: 'false'
+        type: datetime
+    indexes:
+      index_tags_on_name:
+        columns:
+        - name
+        unique: 'true'
+  users:
+    columns:
+      authentication_token:
+        comment: '"desc=API auth token used for API access; ie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9;"'
+        nullable: 'false'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      email:
+        comment: '"desc=Users email address; ie=user@test.com; pii=true;"'
+        type: string
+      external_identifier:
+        type: string
+      first_name:
+        comment: '"desc=Users first name; ie=Samuel; pii=true;"'
+        type: string
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      last_name:
+        comment: '"desc=Users last name; ie=Jackson; pii=true;"'
+        type: string
+      password_digest:
+        comment: '"desc=Users password digest; ie=$2a$04$bcpCtFw9KkNO2gqlI01Aru7w6xfrzqlHDmjRDu/rZ0iCpWFxdbBOa;"'
+        type: string
+      phone:
+        comment: '"desc=Users phone number; ie=1238675309; pii=true;"'
+        type: string
+      timezone:
+        comment: '"desc=most recent timezone;ie=America/New_York"'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      uuid:
+        comment: '"desc=Unique alphanumeric string to identify a user; ie=acde070d-8c4c-4f0d-9d8a-162843c10333;"'
+        type: string
+    indexes:
+      index_users_on_authentication_token:
+        columns:
+        - authentication_token
+        unique: 'true'
+      index_users_on_email:
+        columns:
+        - email
+        unique: 'true'
+      index_users_on_uuid:
+        columns:
+        - uuid
+        unique: 'true'
+  vouchers:
+    columns:
+      code:
+        comment: '"desc=Unique code identifying an individual voucher for a sku;"'
+        nullable: 'false'
+        type: string
+      created_at:
+        nullable: 'false'
+        type: datetime
+      ended_at:
+        comment: '"desc="'
+        type: datetime
+      ended_at_timezone:
+        comment: '"desc="'
+        type: string
+      ended_at_type:
+        comment: '"desc="'
+        type: string
+      expires_at:
+        comment: '"desc=when it expires"'
+        type: datetime
+      id:
+        constraint_type: PRIMARY_KEY
+        type: bigint
+      issued_at:
+        comment: '"desc="'
+        type: datetime
+      meta:
+        comment: '"desc=extraneous information store"'
+        type: jsonb
+      points:
+        comment: '"desc="'
+        nullable: 'false'
+        type: integer
+      sku_code:
+        comment: '"desc=category"'
+        nullable: 'false'
+        type: string
+      updated_at:
+        nullable: 'false'
+        type: datetime
+      user_id:
+        comment: '"desc="'
+        constraint_type: FOREIGN_KEY
+        type: bigint
+    indexes:
+      index_inactive_vouchers:
+        columns:
+        - ended_at
+        - issued_at
+        - sku_code
+        unique: 'false'
+      index_vouchers_on_code:
+        columns:
+        - code
+        unique: 'true'
+      index_vouchers_on_user_id:
+        columns:
+        - user_id
+        unique: 'false'
